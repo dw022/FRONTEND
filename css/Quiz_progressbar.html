@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            width:200px;
+            height: 5px;
+            /* border: 1px solid; */
+            background-color: #ddd;
+            border-radius: 99px;
+        }
+        #bar {
+           width:200px;
+            height: 100%;
+            background-color: purple;
+            animation-name: progress;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease;
+            border-radius: 99px;
+        }
+
+        /* 애니메이션 정의 */
+        @keyframes progress {
+            from {width:0;
+            } to {
+                width:200px;
+            }
+        }
+    </style>
+    <h1>Progress bar</h1>
+    <div class="container">
+        <div id="bar"></div>
+    </div>
+</body>
+
+</html>

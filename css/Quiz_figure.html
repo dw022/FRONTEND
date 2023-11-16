@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container {
+            position: relative;
+            width: 30rem;
+            height: 30rem;
+            border:1px solid;
+        }
+        img {
+            width:inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+           
+            justify-content: flex-end;
+            
+        }
+        .box {  
+        background-color: rgba(0 0 0/0.5);
+        opacity: 0;
+        }
+        .box:hover {
+            opacity: 1;
+        }
+    </style>
+    <h1>Figure</h1>
+    <div class="container">
+        <img src="https://img.freepik.com/premium-photo/siberian-husky-portrait-friendship-endures-husky-pet_410516-17143.jpg">
+        <div class="overlay">
+            <div class="box">
+            <h3>Siberian Husky</h3>
+            <p>시베리안 허스키는 동시베리아에서 유래된 중형견으로 촘촘하게 덮인 모피를 지닌 썰매견이다.</p>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

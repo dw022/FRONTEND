@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* .container {
+            display:inline-grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap:1rem;
+        } */
+        input {
+            display: none;
+        }
+        .btn-red {
+            display:inline-block;
+            border:1px solid #ddd;
+            background-color: red;
+            border-radius: 20px;
+            padding:15px;
+        }
+        .btn-green {
+            display:inline-block;
+            border:1px solid #ddd;
+            background-color: green;
+            border-radius: 20px;
+            padding:15px;
+        }
+        .btn-blue {
+            display:inline-block;
+            border:1px solid #ddd;
+            background-color: blue;
+            border-radius: 20px;
+            padding:15px;
+        }
+
+        /* 선택된 색상에 아웃라인 적용 */
+        input:checked + .btn {
+            outline: 3px solid #333;
+        }
+        /* input type에서 id와 label for은 같게. */
+    </style>
+    <h1>Color picker</h1>
+    <div class="container">
+        <input type="radio" name="btn" id="red"> 
+        <label for="red" class="btn-red"></label>
+
+        <input type="radio" name="btn" id="green" checked>
+        <label for="green" class="btn-green"></label>
+
+        <input type="radio" name="btn" id="blue">
+        <label for="blue" class="btn-blue"></label>
+    </div>
+</body>
+</html>

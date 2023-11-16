@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Q. grid</h1>
+    <style>
+        .container {
+            border: 1px solid;
+        }
+        .grid {
+            display: grid;
+        }
+        .grid-cols-4 {
+            grid-template-columns: repeat(4,minmax(0,1fr));
+        }
+        .gap-2 {
+            gap:0.5rem;
+        }
+        .col-span-2{
+            grid-column-start: span 2;
+        }
+        .col-span-4{
+            grid-column-start: span 4;
+        }
+        .item {
+            background-color: gray;
+            padding:0.5rem;
+        }
+    </style>
+    <div class="container grid grid-cols-4 gap-2">
+        <div class="item col-span-2">item</div>
+        <div class="item col-span-2">item</div>
+        <div class="item col-span-4">item</div>
+        <div class="item">item</div>
+        <div class="item col-span-2">item</div>sdsdfads
+        <div class="item">item</div>
+    </div>
+</body>
+</html>
