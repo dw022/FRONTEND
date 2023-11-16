@@ -264,5 +264,42 @@
     4. 곱하기 대입 연산자 *=
     5. 나누기 대입 연산자 /=
     6. 지수 대입 연산자 **=
-    7. 계수 대입 연산자 &=
+    7. 계수 대입 연산자 %=
 */
+
+// 변수 대입 연산자
+// var foo ="bar";
+// console.log(foo); //bar
+
+//더하기 대입 연산자
+// var n=1;
+// n +=1;
+// console.log(n); //2
+
+/*
+    비교 연산자 
+    
+    1. 동등 연산자 ==
+    2. 비동등 연산자 !=
+    3. 엄격동등연산자 ===
+    4. 엄격비동등연산자 !==
+    5. gt 연산자 >
+    6. gte 연산자 >=
+    7. lt 연산자 <
+    8. lte 연산자 <=
+*/
+
+// 동등 연산자: 같은 경우 true, 다른 경우 false를 리턴한다.
+
+// console.log(1==2); // false
+// console.log("foo"=="bar"); //false
+// console.log(0==false); //true
+// console.log(2023=="2023"); //true
+
+//엄격동등연산자 :같은경우 true, 다른 경우 false를 리턴한다.
+// console.log(1===2); //false
+// console.log("foo"==="bar"); //false
+// console.log(0===false); //false
+// console.log(2023==="2023"); // false
+
+
