@@ -488,10 +488,23 @@ for (표현식1; 표현식2; 표현식3) {
 
 /* break: 반복문을 빠져나온다. */
 
-for (var speed=0; speed <200; speed+=10) {
-    if(speed > 60) {
-        console.log("속도를 낮추세요!");
-        break;
+// for (var speed=0; speed <200; speed+=10) {
+//     if(speed > 60) {
+//         console.log("속도를 낮추세요!");
+//         break;
+//     }
+//     console.log(speed + "km/h");
+// }
+
+/*
+    while문
+    
+    while(반복 조건) {
+        반복할 코드
     }
-    console.log(speed + "km/h");
-}
+*/
+// var n=1;
+// while(n<=10) {
+//     console.log(n+"번 실행되었습니다.");
+//     n++;
+// }
