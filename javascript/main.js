@@ -508,3 +508,29 @@ for (표현식1; 표현식2; 표현식3) {
 //     console.log(n+"번 실행되었습니다.");
 //     n++;
 // }
+
+/* 변수 (Variable) : 값을 저장하는 컨테이너
+1. 기본 사용 방법
+2. 전역변수와 지역변수
+*/
+
+//기본 사용 방법 - 변수 선언 및 정의, 재정의도 가능
+// var foo ="bar";
+// foo = "bax";
+// console.log(foo); //bax
+
+
+/* 전역 변수 (Global variable)
+
+함수 밖에서 선언된 변수로, 소스코드 어디에서든지 사용가능 */
+// var varInGlobal=true;
+// console.log(varInGlobal);
+
+/* 지역 변수 (Local variable)
+
+함수 내에서 선언된 변수로, 선언된 함수내에서만 사용가능 */
+// function f() {
+//     var varInFunction = true;
+//     console.log(varInFunction);
+// }
+
