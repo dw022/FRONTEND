@@ -533,4 +533,4 @@ for (표현식1; 표현식2; 표현식3) {
 //     var varInFunction = true;
 //     console.log(varInFunction);
 // }
-
+// f() //함수 호출
