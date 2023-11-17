@@ -478,3 +478,20 @@ for (표현식1; 표현식2; 표현식3) {
 // for (var n=1; n<=10; n++) {
 //     console.log(n + "번 실행되었습니다");
 // }
+
+//1~10까지의 합
+// var sum=0;
+// for (var n=1; n<=10; n+=2) { //2씩 더하게 하려면 n+=2
+//     sum +=n;
+// }
+// console.log(sum); //55
+
+/* break: 반복문을 빠져나온다. */
+
+for (var speed=0; speed <200; speed+=10) {
+    if(speed > 60) {
+        console.log("속도를 낮추세요!");
+        break;
+    }
+    console.log(speed + "km/h");
+}
