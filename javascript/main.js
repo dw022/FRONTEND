@@ -291,10 +291,10 @@
 
 // 동등 연산자: 같은 경우 true, 다른 경우 false를 리턴한다.
 
-console.log(1==2); // false
-console.log("foo"=="bar"); //false
-console.log(0==false); //true
-console.log(2023=="2023"); //true
+// console.log(1==2); // false
+// console.log("foo"=="bar"); //false
+// console.log(0==false); //true
+// console.log(2023=="2023"); //true
 
 //엄격동등연산자 :같은경우 true, 다른 경우 false를 리턴한다.
 // console.log(1===2); //false
@@ -302,4 +302,50 @@ console.log(2023=="2023"); //true
 // console.log(0===false); //false
 // console.log(2023==="2023"); // false
 
+/*
+    비동등 연산자
+    
+    표현식1 != 표현식2
 
+    표현식이 비동등하면 true를 리턴한다.
+    동등하면 false를 리턴한다.
+*/
+
+// console.log(1 != 2); //true
+// console.log("foo" != "bar"); //true
+// console.log(0 != false); //false
+// console.log(2023 != "2023"); //false
+
+/*
+    엄격 비동등 연산자
+    표현식 1 !== 표현식2
+*/
+// console.log(1 !== 2) //true 
+// console.log("foo" !=="bar") //true
+// console.log(0 !== false) //true
+// console.log(2023 !== "2023") //true
+
+/*
+    논리 연산자
+
+    1. && (AND)
+    2. || (OR)
+    3. ! (NOT)
+*/
+
+// AND 표현식1 && 표현식2 -> 표현식 1, 2가 모두 참이면 true를 리턴한다.
+// console.log(1>0 && 1<2); //true
+
+// OR 표현식1 || 표현식2 -> 표현식 1, 2 둘중 하나가 참이면 true 리턴
+// console.log(1>2 || 1>0); //true
+
+//NOT ! 표현식
+// console.log(!true); //false
+
+// Boolean타입이 아닌 값을 부정하는 경우
+console.log("0: 부정:", !0); //true 
+console.log("0이 아닌 숫자 부정:", !2023); //false
+console.log("빈 문자열 부정:", !""); //true
+console.log("문자열 부정:", !"abcd"); //false
+console.log("null 부정:", !null); //true
+console.log("undefined 부정:", !undefined); //true
