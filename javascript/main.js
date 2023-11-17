@@ -424,7 +424,7 @@
 //         console.log("내년");
 //         break;
 // }
-var year=2030;
+// var year=2030;
 
 // switch(year) {
 //     case 2022:
