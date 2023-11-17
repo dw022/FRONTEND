@@ -11,7 +11,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${frontend}\\javascript\\main.js"
+            "program": "${file}",
+            "runtimeExecutable": "C:/Program Files/nodejs/node.exe"
         }
+        
     ]
 }

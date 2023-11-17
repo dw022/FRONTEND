@@ -291,10 +291,10 @@
 
 // 동등 연산자: 같은 경우 true, 다른 경우 false를 리턴한다.
 
-// console.log(1==2); // false
-// console.log("foo"=="bar"); //false
-// console.log(0==false); //true
-// console.log(2023=="2023"); //true
+console.log(1==2); // false
+console.log("foo"=="bar"); //false
+console.log(0==false); //true
+console.log(2023=="2023"); //true
 
 //엄격동등연산자 :같은경우 true, 다른 경우 false를 리턴한다.
 // console.log(1===2); //false
