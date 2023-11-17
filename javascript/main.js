@@ -343,9 +343,115 @@
 // console.log(!true); //false
 
 // Boolean타입이 아닌 값을 부정하는 경우
-console.log("0: 부정:", !0); //true 
-console.log("0이 아닌 숫자 부정:", !2023); //false
-console.log("빈 문자열 부정:", !""); //true
-console.log("문자열 부정:", !"abcd"); //false
-console.log("null 부정:", !null); //true
-console.log("undefined 부정:", !undefined); //true
+// console.log("0: 부정:", !0); //true 
+// console.log("0이 아닌 숫자 부정:", !2023); //false
+// console.log("빈 문자열 부정:", !""); //true
+// console.log("문자열 부정:", !"abcd"); //false
+// console.log("null 부정:", !null); //true
+// console.log("undefined 부정:", !undefined); //true
+
+/*
+    타입 연산자: 변수의 타입을 리턴한다
+*/
+
+// var foo="bar";
+// console.log(typeof foo); //string
+
+/*
+    조건문
+    1. if문
+    2. if/else문
+    3. if/else if/else문
+    4. switch문
+    5. 삼항연산자 조건문
+*/
+
+/*
+    if 문
+
+    if(조건){
+        조건이 참인 경우 실행되는 코드
+    }
+*/
+// var year = 2023
+// if (year ==2023) {
+//     console.log("2023년아 가지마 ㅠㅠ");
+// }
+
+/*
+    if / else 문
+    
+    if(조건) {
+        조건이 참인 경우 실행되는 코드
+    } else {
+        그 이외의 조건이 해당되는 경우 실행되는 코드
+    }
+*/
+// var year = 2023;
+// if(year ==2023) {
+//     console.log("올해는 2023")
+// } else {
+//     console.log("내년은 2024")
+// }
+
+/*
+    if / else if / else문
+*/
+// var year=2023;
+// if (year==2022) {
+//     console.log("작년");
+// } else if(year==2023) {
+//     console.log("올해");
+// } else {
+//     console.log("내년");
+// }
+
+/* switch문: 엄격 동등 연산을 수행한다
+- 기본 사용 방법
+- default값
+*/
+// var year = 2023;
+// switch(year) {
+//     case 2022:
+//         console.log("작년");
+//         break;
+    
+//     case 2023:
+//         console.log("올해");
+//         break;
+    
+//     case 2024:
+//         console.log("내년");
+//         break;
+// }
+var year=2030;
+
+// switch(year) {
+//     case 2022:
+//         console.log("작년");
+//         break;
+    
+//     case 2023:
+//         console.log("올해");
+//         break;
+    
+//     case 2024:
+//         console.log("내년");
+//         break;
+
+//     default: //모든 case가 거짓일때 실행됨
+//         console.log("가까운 년도가 아님다.");
+// }
+
+/*
+    삼항 연산자 (?) 조건문
+    조건 ? 값1 : 값2
+    조건이 참인경우 값1을 리턴한다.
+    조건이 거짓인 경우 값2를 리턴한다.
+*/
+// var year =2023;
+// var r = year == 2023 ? "올해" : "올해가 아닙니다.";
+// console.log(r);
+
+
+
