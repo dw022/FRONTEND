@@ -534,3 +534,82 @@ for (표현식1; 표현식2; 표현식3) {
 //     console.log(varInFunction);
 // }
 // f() //함수 호출
+
+/*
+    함수(function): 호출될 때에만 실행되는 코드
+    기능의 단위로 사용된다.
+
+    1. 함수 선언과 호출
+    2. Hoisting
+    3. 매개변수와 인자
+    4. return 
+    5. 콜백
+*/
+
+/*
+    함수의 선언과 호출
+*/
+
+//선언
+// function f() {
+//     console.log("foo");
+// }
+
+// -> 변수에 익명함수를 대입한다. Hoisting이 되지 않는다.
+// var f = function() { 
+//     console.log("foo");
+// }
+
+// //호출
+// f(); //foo
+
+/* Hoisting (게양) : 함수를 먼저 호출하고, 함수를 선언할 수 있다. 가독성 옵션이다. */
+
+// f();
+// function f() {
+//     console.log("foo");
+// }
+
+/* 매개변수와 인자(parameter and argument)
+
+1. 매개변수: 인자를 치환한 변수
+2. 인자: 함수에 입력되는 값 
+*/
+
+// function add(x,y) { //x,y - 매개변수
+//     console.log("결과: ", x+y);
+// }
+// add(1,2); // 1, 2 - 인자
+
+/*
+    return: 함수는 작업의 결과를 반환해야한다.
+*/
+
+// function add(x,y) {
+//     return x+y;
+// }
+// var r= add(1,2);
+// console.log("return 결과:",r);
+
+/* 콜백(callback)
+함수 인자
+*/
+
+// function f(callback) {
+//     var foo="bar";
+//     callback(foo); //실행
+// }
+
+// function cb(data) { //콜백
+//     console.log(data);
+// }
+// f(cb);
+
+// 콜백의 실제 예시 - 시계
+// function getTime() {
+//     var time=new Date().toLocaleTimeString(); //현재 시간을 반환
+
+//     console.log(time);
+// }
+// setInterval(getTime, 1000); //setInterval(callback, ms); 1000ms=1s
+
