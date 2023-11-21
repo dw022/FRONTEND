@@ -613,3 +613,81 @@ for (표현식1; 표현식2; 표현식3) {
 // }
 // setInterval(getTime, 1000); //setInterval(callback, ms); 1000ms=1s
 
+/*
+    배열 (Array): 한개 이상의 값을 가지는 데이터타입
+    배열의 각 값을 아이템이라고 부른다.
+
+    1. 배열 기본
+    2. 배열의 메서드
+    3. 배열 순회
+*/
+
+/* 1. 배열 기본
+
+1) 아이템에 접근하기
+2) 아이템 업데이트
+3) 아이템 갯수 구하기
+*/
+
+// 1) 아이템에 접근하기
+// var arr = [10, 20, 30];
+// console.log(arr[0]);
+// console.log(arr[1]);
+// console.log(arr[2]);
+
+// 2) 아이템 업데이트
+// var arr = [10, 20,30];
+// arr[2]=40; //해당 인덱스의 값을 새로 대체
+// console.log(arr); //10, 20, 30
+
+// 3) 아이템 갯수 구하기
+// var arr = [10, 20, 30]
+// console.log(arr.length); // 3
+
+/*
+    2. 배열의 메서드: 배열의 특정한 작업을 수행한다
+
+    1) push
+    2) pop
+    3) concat
+    4) sort
+*/
+
+/* 
+    push(새아이템1, 새아이템2, ...): 배열의 마지막에 새아이템들을 추가한다.
+*/
+// var arr = [1,2,3];
+// arr.push(4);
+// console.log(arr); //[1,2,3,4]
+
+/* 
+    pop: 배열의 마지막 아이템을 제거한다.
+*/
+// var arr=[1,2,3,4,5];
+// arr.pop();
+// console.log(arr); //[1,2,3,4]
+
+/* 
+    concat(배열1, 배열2, 배열3, ...): concatenate(연결)
+    - 배열에 새 배열들을 뒤에 연결
+    - 연결된 배열을 리턴
+*/
+// var arr1=[1,2];
+// var arr2=[4,5];
+
+// var r= arr1.concat(arr2);
+// console.log(r); // [1,2,4,5]
+
+/*
+    sort: 배열의 아이템을 정렬한다.
+    - 숫자 배열의 경우 오름차순으로 정렬
+    - 문자열 배열의 경우 알파벳순으로 정렬
+*/
+// var arr=[1,2,7,9,5,3];
+// arr.sort();
+// console.log(arr);
+
+// var arr1=["foo", "bar", "라", "가아앙"];
+// arr1.sort();
+// console.log(arr1);
+
