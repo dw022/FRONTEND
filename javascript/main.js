@@ -715,8 +715,6 @@ for (표현식1; 표현식2; 표현식3) {
 // }
 
 
-
-
 /*
     객체 (Object): 변수와 함수의 집합
     데이터를 다루기 위한 기본 단위.
@@ -807,6 +805,7 @@ for (표현식1; 표현식2; 표현식3) {
 
 /*
     클래스 (Class): 객체 생성용 틀(template)
+    객체를 효율적으로 관리하기 위해서
 
     1. 클래스의 구조
     2. 클래스와 인스턴스
@@ -817,19 +816,129 @@ for (표현식1; 표현식2; 표현식3) {
 */
 
 //클래스의 구조
-class Beer { // 클래스의 이름은 대문자로 시작해야한다.
-    //클래스 멤버 - 클래스에 속한 변수들
-    name;
-    origin;
-    available;
-}
+// class Beer { // 클래스의 이름은 대문자로 시작해야한다.
+//     //클래스 멤버 - 클래스에 속한 변수들
+//     name;
+//     origin;
+//     available;
+// }
 
-var irishBeer = new Beer();
-irishBeer.name="기네스"
-irishBeer.origin = "아일랜드"
-irishBeer.available = false;
+// var irishBeer = new Beer();
+// irishBeer.name="기네스"
+// irishBeer.origin = "아일랜드"
+// irishBeer.available = false;
 
-var dutchBeer = new Beer();
-dutchBeer.name = "하이네켄"
-dutchBeer.origin = "네덜란드"
-dutchBeer.available=true;
+// var dutchBeer = new Beer();
+// dutchBeer.name = "하이네켄"
+// dutchBeer.origin = "네덜란드"
+// dutchBeer.available=true;
+
+// console.log(irishBeer);
+// console.log(dutchBeer);
+
+// //instanceof: 객체가 특정 클래스의 인스턴스인지 확인
+// console.log(irishBeer instanceof Beer); // true
+// console.log(dutchBeer instanceof Beer); //true
+
+/* 
+    생성자 (constructor): 인스턴스의 속성 설정을 처리한다
+*/
+
+// class Beer {
+//     name;
+//     origin;
+//     available;
+
+//     constructor (name, origin, available) {
+//         //this는 인스턴스를 의미한다
+//         this.name =name;
+//         this.origin=origin;
+//         this.available=available;
+//     }
+// }
+
+// var irishBeer = new Beer("기네스", "아일랜드", false);
+// console.log(irishBeer);
+
+//함수 멤버
+
+// class Beer {
+//     // 다른 멤버 ..
+
+//     drink() {
+//         return "홀짝";
+//     }
+// }
+
+// var beer = new Beer();
+
+// //클래스의 함수 멤버는 인스턴스의 메서드가 된다
+// console.log(beer.drink());
+
+// /*
+//     static 멤버: 클래스와 관련된 유용한 기능을 제공한다. 클래스 자체가 호출한다.
+// */
+
+// class Cat {
+//     //다른 멤버 ..
+
+//     //static 변수
+//     static history = "기원전 3000년전";
+                                    
+//     //static 함수
+//     static brewing() {
+//         return "밑, 홈, 효모, 물 등"
+//     }
+// }
+
+// console.log(Cat.history)
+// console.log(Cat.brewing())
+
+// 자바스크립트에 내장된 static 변수 예시
+// console.log(Math.PI); //3.141592.....
+
+//Beer 클래스 완성본
+
+// class Beer {
+//     //클래스 멤버
+//     name; 
+//     origin;
+//     available;
+    
+//     //생성자
+//     constructor (name, origin, available) {
+//         this.name = name;
+//         this.origin = origin;
+//         this.available = available;
+//     }
+
+//     //함수 멤버
+//     drink() {
+//         return "홀짝홀짝";
+//     }
+    
+//     //static 변수
+//     static history = "기원전 3000년전";
+
+
+//     //static 함수
+//     static brewing() {
+//         return "밀, 홈, 효모, 물 등";
+//     }
+// }
+
+/*
+    자바스크립트에 내장된 클래스
+
+    1. 문자처리: String
+    2. 숫자 및 날짜: Number, Math, Date
+    3. 컬렉션: Array
+    4. 에러: SyntaxError, ReferenceError 등
+    5. 기타: Promise, JSON, Object
+*/
+
+//현재날짜를 구할때
+console.log(new Date().toLocaleDateString()); // Date 클래스
+
+//반올림 기능
+console.log(Math.round(0.5)); // Math 클래스
