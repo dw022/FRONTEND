@@ -10,8 +10,14 @@ console.log(cars);
 
 var arr=["foo", "bar", "baz"];
 
-for (var i=0; i<arr.length; i++){
-    if(arr[i].startsWith("b")) {       //startsWith("b") 활용
+for (var i=0; i<arr.length; i++) {
+    if(arr[i][0]=="b") {
         console.log(arr[i]);
     }
 }
+
+// for (var i=0; i<arr.length; i++){
+//     if(arr[i].startsWith("b")) {       //startsWith("b") 활용
+//         console.log(arr[i]);
+//     }
+// }
