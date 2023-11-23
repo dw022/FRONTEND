@@ -705,6 +705,7 @@ for (표현식1; 표현식2; 표현식3) {
 //     console.log(arr[i]*10);
 // } //20, 30, 40
 
+// 2) 배열 필터링하기
 // - 20살 이상인 성인만 출력해야 하는 경우
 // var ages = [12, 19, 22, 25, 30]; 
 // for (var i=0; i<ages.length; i++) {
@@ -714,4 +715,92 @@ for (표현식1; 표현식2; 표현식3) {
 // }
 
 
-// 2) 배열 필터링하기
+
+
+/*
+    객체 (Object): 변수와 함수의 집합
+    데이터를 다루기 위한 기본 단위.
+
+    1. 객체의 구조
+    2. 기본 사용 방법
+*/
+
+/*
+    객체의 구조
+    1. 속성(Property): 객체가 가진 변수
+    키와 값(Key and Value)로 구성된다.
+
+    2. 메서드 (Method)
+    속성 중에서 값이 함수인 것을 특별히 메서드라고 부른다.
+*/
+
+// var cat = {
+//     //속성 (키: 값)
+//     name: "치즈", 
+//     home: null, // 길고양이
+//     sound: function() { //메서드
+//         return "야옹";
+//     }
+// }
+
+/*
+    기본 사용 방법
+
+    1. 속성에 접근하기
+    2. 속성 추가하기
+    3. 속성 수정하기
+    4. 속성 삭제하기
+*/
+
+// 1. 속성에 접근하기
+
+// var cat = {
+//     name: "치즈",
+//     home: null,
+//     sound: function() {
+//         return "야옹!";
+//     }
+// }
+
+// //이름에 접근 -> 치즈
+// console.log(cat.name);
+// //home에 접근 -> null
+// console.log(cat.home);
+// //메서드 호출 -> 야옹!
+// console.log(cat.sound()); 
+// //없는 속성에 접근하는 경우 -> undefined
+// console.log(cat.color);
+
+// 2. 속성 추가하기
+
+// var cat = {
+//     name:"치즈",
+//     home: null,
+//     sound: function() {
+//         return "야옹!";
+//     }
+// }
+
+// cat.age=2;
+
+// console.log(cat.age);
+
+// 3. 속성 수정하기
+
+// var cat = {
+//     name: "치즈",
+//     home: null,
+// }
+
+// cat.home = "마포구"
+// console.log(cat);
+
+// 4. 속성 삭제하기
+
+var cat={
+    name: "치즈",
+    home: null
+}
+
+delete cat.home;
+console.log(cat);
