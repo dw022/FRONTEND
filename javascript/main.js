@@ -797,10 +797,11 @@ for (표현식1; 표현식2; 표현식3) {
 
 // 4. 속성 삭제하기
 
-var cat={
-    name: "치즈",
-    home: null
-}
+// var cat={
+//     name: "치즈",
+//     home: null
+// }
 
-delete cat.home;
-console.log(cat);
+// delete cat.home;
+// console.log(cat);
+
