@@ -805,3 +805,31 @@ for (표현식1; 표현식2; 표현식3) {
 // delete cat.home;
 // console.log(cat);
 
+/*
+    클래스 (Class): 객체 생성용 틀(template)
+
+    1. 클래스의 구조
+    2. 클래스와 인스턴스
+    3. 생성자
+    4. 함수 멤버
+    5. static 멤버
+    6. 자바스크립트에 내장된 클래스
+*/
+
+//클래스의 구조
+class Beer { // 클래스의 이름은 대문자로 시작해야한다.
+    //클래스 멤버 - 클래스에 속한 변수들
+    name;
+    origin;
+    available;
+}
+
+var irishBeer = new Beer();
+irishBeer.name="기네스"
+irishBeer.origin = "아일랜드"
+irishBeer.available = false;
+
+var dutchBeer = new Beer();
+dutchBeer.name = "하이네켄"
+dutchBeer.origin = "네덜란드"
+dutchBeer.available=true;
