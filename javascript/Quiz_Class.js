@@ -33,13 +33,13 @@ class Car {
     }
 
     //static 함수
-    static getAge() {
-        var currentYear = new Date(currentYear);
-        var age;
-        age = currentYear - birthYear + 1;
-
-        return age;
+    static getAge(year) {
+        return "차의 나이:" + (2023 - year);
     }
 }
 
-console.log(Car.getAge());
+var car = new Car("GV80", "제네시스", "블랙");
+
+console.log(car);
+console.log(car.sound());
+console.log(Car.getAge(2020));
