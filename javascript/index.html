@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <!--
+     <h1>script 태그</h1>
+
+    <button onclick="f()">Click me</button>
+
+    <script>
+        function f() {
+            alert("hello script"); //창이 뜸
+        }
+    </script> 
+    -->
+     <!--
+    <h1>window 객체</h1>
+
+    <pre>
+        클라이언트 개발을 위한 도구 모음
+    
+        window 객체가 제공하는 다양한 도구들:
+        - history
+        - location
+        - navigator
+        - 서버 요청 메서드
+        - 웹스토리지
+        - 커뮤니케이션 메서드
+        - document
+    </pre>
+
+    <script>
+        console.log(window);
+    </script> 
+    -->
+<!-- 
+    <script>
+        /*
+            history
+
+            브라우징 기록과 관련된 데이터와 메서드를 제공한다.
+        */
+       
+        //방문한 페이지의 수
+        console.log(history.length);
+        //이전 페이지로 돌아갈수있게 하는 메서드 (뒤로가기 버튼)
+        //console.log(history.back);
+    </script>
+     -->
+
+     <!-- <script>
+        /*
+            location
+
+            사용자의 웹 상에서의 위치정보에 대한 데이터와 메서드를 제공한다.
+        */
+
+        //방문중인 URL
+        console.log(location.href);
+        //웹페이지 내에서 위치
+        console.log(location.hash);
+     </script> -->
+
+     <!-- <script>
+        /*
+            navigator
+
+            브라우저에 대한 정보와 메서드를 제공한다.
+        */
+
+        //브라우저의 언어
+        //console.log(navigator.language);
+
+        //브라우저가 현재 온라인 상태인지 확인
+        console.log(navigator.language);
+
+        //클라이언트의 지리적 위치(좌표) - 위치 기반 서비스
+        console.log(navigator.geolocation.coordinates);
+     </script> -->
+
+     <!-- <script>
+        /*
+            서버 요청 메서드
+
+            AJAX 요청 등에서 사용된다.
+
+            AJAX - 페이지를 새로고침하지않고 서버에 요청하는 기술
+            */
+
+            console.log(XMLHttpRequest);
+            console.log(fetch); //신기술
+
+     </script> -->
+
+
+     <!-- <script>
+        /*
+            웹 스토리지
+
+            브라우저가 제공하는 저장공간
+        */
+
+        console.log(document.cookie); //쿠키
+        console.log(localStorage); //신기술
+     </script> -->
+
+     <!-- <script>
+        /*
+            document
+
+            뷰 개발에 사용된다
+        */
+
+        //HTML 문서
+        console.log(document);
+     </script> -->
+
+     <!-- <h1>DOM</h1>
+
+     <pre>
+        Document Object Model(문서 객체 모델)의 약자
+        문서의 모든 엘리먼트가 객체라는 것을 의미한다.
+     </pre>
+
+     <input type="text" id="input">
+
+     <script>
+        // 엘리먼트이면서 객체
+        var input = document.getElementById("input");
+
+        // 속성과 메서드를 가질수 있다.
+        input.focus();
+        // focus 메서드: input에 커서를 깜빡이게 한다.
+     </script> -->
+
+
+     <!-- <script>
+        /*
+            id로 엘리먼트 선택하는 방법
+
+            document.getElementById(id)
+        */
+
+        var foo = document.getElementById("foo");
+
+        console.log(foo);
+     </script> -->
+
+     <!-- <script>
+        /*
+            class로 엘리먼트 선택하는 방법
+
+            document.getElementsByClassName(class)
+        */
+
+        var items = document.getElementsByClassName("item");
+
+        // // HTMLCollection(length)
+        // console.log(items);
+
+        // //각 엘리먼트에 접근하기
+        // console.log(items[0]); //foo
+        // console.log(items[1]); //bar
+        // console.log(items[2]); //baz
+
+        // 엘리먼트의 갯수 구하기
+        console.log(items.length); // 3
+     </script> -->
+
+     <!-- <h1>textContent</h1>
+     <p>엘리먼트의 텍스트를 저장한다.</p>
+
+     <p id="song">내가 만든 쿠키~</p>
+
+     <script>
+        var song=document.getElementById("song");
+        
+        console.log(song.textContent);
+
+        // 엘리먼트의 텍스트 업데이트
+        song.textContent="내 지난 날들은 눈 뜨면 잊는 꿈~"
+     </script> -->
+
+     <!-- <h1>innerHTML</h1>
+     <p>엘리먼트 내부의 트리를 문자열 타입으로 저장한다.</p>
+
+     <ul id="list">
+        <li>스타리아</li>
+        <li>아반떼</li>
+        <li>캐스퍼</li>
+     </ul>
+
+    <script>
+        var list=document.getElementById("list");
+
+        // innerHTML에 접근
+        console.log(list.innerHTML);
+
+        // innerHTML 업데이트
+        list.innerHTML=`
+        <li>아이오닉5</li>
+        <li>카니발</li>
+        <li>K5</li>
+        `
+    </script> -->
+
+     <!-- <h1>classList</h1>
+    <pre>
+        엘리먼트의 클래스 리스트를 저장한다.
+        클래스를 다루기 위한 몇가지 메서드를 가지고 있다.
+    </pre>
+
+    <style>
+        .text-italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+    </style>
+
+    <ul>
+        <li id="foo" class="font-bold text-italic">foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul>
+
+    <script>
+        var foo=document.getElementById("foo");
+
+        //DOMTokenList(length)
+        console.log(foo.classList);
+
+        console.log(foo.classList);
+
+        console.log(foo.classList[0]); // font-bold
+        console.log(foo.classList[1]); // text-italic
+        console.log(foo.classList.length); // 2
+    
+
+    /*
+        classList의 메서드
+        
+        1. add - 리스트에 클래스를 추가한다.
+        2. remove - 리스트에서 클래스를 제거한다.
+        3. contains - 리스트에서 특정한 클래스가 있는지 확인한다.
+    */
+
+    // add (추가할 클래스)
+    foo.classList.add("underline");
+
+    // remove (제거할 클래스)
+    foo.classList.remove("font-bold");
+
+    // contains (확인할 클래스)
+    console.log(foo.classList.contains("font-bold"));
+    </script>  -->
+
+    <!-- <h1>애트리뷰트</h1>
+    <pre>
+        엘리먼트의 기능을 확장시킨다.
+    </pre>
+
+    <label for="input">비밀번호</label>
+    <input
+    type="password"
+    id="input"
+    name="password"
+    value="12345"
+    style="outline: none"
+    >
+
+    <script>
+        var input = document.getElementById("input");
+        
+        // 애트리뷰트에 접근하기
+        console.log("type:", input.type);
+        console.log("id:", input.id);
+        console.log("name:", input.name);
+        console.log("value:", input.value);
+        console.log("style outline:", input.style.outline);
+
+        // 애트리뷰트 업데이트
+        input.type="text";
+    </script> -->
+
+    <h1>createElement</h1>
+    <p>새 엘리먼트를 생성한다.</p>
+
+    <ul id="list">
+        <li>foo</li>
+        <li>bar</li>
+    </ul>
+
+    <script>
+        var list=document.getElementById("list");
+
+        // document.createElement(생성할 엘리먼트)
+        var li = document.createElement("li");
+
+        // 엘리먼트에 텍스트 추가
+        li.textContent = "baz";
+
+        // 문서에 주입
+        list.appendChild(li);
+        // 컨테이너에 엘리먼트를 마지막 자식으로 추가한다.
+    </script>
+</body>
+</html>
