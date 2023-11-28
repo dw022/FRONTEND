@@ -938,7 +938,148 @@ for (표현식1; 표현식2; 표현식3) {
 */
 
 //현재날짜를 구할때
-console.log(new Date().toLocaleDateString()); // Date 클래스
+// console.log(new Date().toLocaleDateString()); // Date 클래스
 
-//반올림 기능
-console.log(Math.round(0.5)); // Math 클래스
+// //반올림 기능
+// console.log(Math.round(0.5)); // Math 클래스
+
+/*
+    에러와 에러 처리
+
+    1. 에러 개념
+    2. 예외
+*/
+
+/* 에러(Error): 프로그램을 중단시키며, 반드시 처리되어야 한다.*/
+
+// console.log(foo); //존재하지 않는 변수 선언
+//name: ReferenceError
+//message: foo is not defined
+//stack: 기타 내용
+
+// console.log("foo"))
+
+//name: SyntaxError (문법 에러)
+//message: Unexpected token ')' (예상하지 못한 기호 ')')
+//stack: 기타 내용
+
+/*
+    예외 (Exception)
+
+    필요한 경우 의도적으로 발생시키는 에러
+
+    Ex) 인증 실패
+*/
+
+// var password="123";
+// var input="1234";
+
+// if(input!=password) {
+//     throw "비밀번호가 일치하지 않습니다.";
+// }
+
+/*
+    예외 처리
+
+    try / catch 구문으로 처리한다.
+    프로그램이 계속해서 실행될 수 있다.
+*/
+
+// var password = "123";
+// var input = "1234";
+
+// try {
+//     if (input != password) {
+//         throw "비밀번호 불일치!";
+//     }
+//     console.log("비밀번호 일치! 로그인 성공!");
+
+// } catch (error) { // 에러 처리 -> 보기싫은 빨간색 에러가 사라지고 정상 출력만 됨
+//     console.log("에러:", error);
+// }
+
+/*
+    비동기 작업
+    
+    프로그램에서 블록킹을 방지하기 위해 사용된다.
+
+    Ex) 서버에 데이터 요청
+
+    1. 동기 작업
+    2. 비동기 작업
+*/
+
+/* 동기 작업: 작업이 순서대로 실행된다. 대부분이 동기 작업임 */
+// function f() {
+//     console.log("작업 1");
+// }
+
+// f();
+// console.log("작업 2");
+
+// /* 비동기 작업(Asynchronous): 빠른 작업부터 우선 실행된다. */
+
+// //서버에서 데이터를 가져오는 예시
+
+// //서버에 데이터를 요청하는 함수
+// function getData(callback) {
+//     setTimeout(function () {
+//         callback(null, "야옹")
+//     }, 1000); //서버에서 데이터를 가져오는데 1초가 걸린다고 가정
+// }
+
+// getData(function (err, data) {
+//     if(err) {
+//         return console.log(err);
+//     }
+
+//     console.log("서버에서 가져온 데이터:", data);
+// })
+
+// console.log("다음 작업"); // 다음작업이 먼저 실행된다.
+
+/*
+    JSON
+
+    1. JSON 개념
+    2. JSON.stringify
+    3. JSON.parse
+*/
+
+/*
+    JSON 개념:
+    JavaScript Object Notation(자바스크립트 객체 표기법)의 약자
+    객체를 저장하거나 전송하기 위한 텍스트 포맷
+
+    - 구조
+    { "key" : "value" }
+*/
+
+// var cat = {name: "치즈"}; //객체
+// var cat_json = '{ "name": "치즈 }'; //JSON
+
+// console.log(cat_json);
+// console.log(typeof cat_json); //string
+
+/*
+    JSON.stringify
+
+    객체를 -> JSON 포맷으로 변환한다.
+*/
+
+// var cat={name:"치즈"};
+// var cat_json = JSON.stringify(cat);
+
+// console.log(cat_json);
+
+/* 
+    JSON.parse
+
+    JSON을 -> 객체로 변환한다.
+*/
+
+// var cat_json = '{ "name": "치즈" }';
+// var cat = JSON.parse(cat_json);
+
+// console.log(cat);
+
