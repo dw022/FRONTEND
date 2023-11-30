@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>event</h1>
+    <h3 id="message">너에게 할말이 있어. 나 사실..</h3>
+
+    <button id="btn">눌러줄래?</button>
+
+    <script>
+        var message = document.getElementById("message");
+        var btn = document.getElementById("btn");
+
+        //콜백에 익명함수를 사용할 수 있다. - 간단한 코드
+        //btn.addEventListener("click", function() {
+        //    message.textContent="ㅗ";
+        //});
+        btn.addEventListener("click", push);
+
+        function push() {
+            message.textContent="ㅗ";
+        }
+    </script>
+</body>
+</html>
