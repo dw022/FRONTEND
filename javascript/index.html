@@ -318,6 +318,61 @@
     </script>
      -->
 
+     <!-- <h1>이벤트와 이벤트 처리</h1>
+     <p>
+        이벤트 - 웹페이지 내에서 발생하는 일들
+        Ex) 클릭, 스크롤, 마우스 움직임, 터치 등
+     </p>
+
+     <button id="btn">button</button>
+
+     <script>
+        var btn = document.getElementById("btn");
+
+        /*
+            이벤트 처리
+
+            element.addEventListener(event, eventHandler)
+
+            엘리먼트에 event가 발생할 때 evenHandler가 호출된다
+
+            evenHandler - 콜백(함수 인자)
+
+        */
+
+        btn.addEventListener("click", handleClick); //click하면 handleClick() 함수 실행
+
+        function handleClick() {
+            alert("lol");   //알림이나 주의를 일방적으로 주는 팝업 창 띄우기
+        }
+     </script> -->
+
+     <!-- <h1>이벤트 애트리뷰트</h1>
+     <p>
+        이벤트 애트리뷰트로도 이벤트를 처리할 수 있다
+     </p>
+
+     <button onclick="f()">button</button>
+
+     <script>
+        function f() {
+            alert("lol");
+        }
+     </script> -->
+
+     <h1>이벤트 객체</h1>
+     <p>발생한 이벤트와 관련된 정보를 저장한다.</p>
+
+     <button id="btn">button</button>
      
+     <script>
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click", handleClick);
+
+        function handleClick(e) {
+            console.log(e);
+        }
+     </script>
 </body>
 </html>
