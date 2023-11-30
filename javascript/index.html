@@ -360,7 +360,7 @@
         }
      </script> -->
 
-     <h1>이벤트 객체</h1>
+     <!-- <h1>이벤트 객체</h1>
      <p>발생한 이벤트와 관련된 정보를 저장한다.</p>
 
      <button id="btn">button</button>
@@ -374,6 +374,37 @@
             // addEventListener가 콜백(이벤트핸들러)에게 이벤트 객체를 전달한다.
             console.log(e);
         }
+     </script> -->
+
+     <h1>로컬 스토리지</h1>
+     <pre>
+        브라우저가 제공하는 저장공간
+        쿠키의 대체제이다. 
+        클라이언트측의 데이터를 저장하는데 사용된다.
+        Ex) 테마 선택, 유저 데이터 저장, 로그인 토큰 저장 등
+     </pre>
+
+     <script>
+        /*
+            로컬 스토리지의 메서드
+
+            1. localStorage.setItem(key, value)
+            로컬 스토리지에 데이터를 저장한다.
+
+            2. localStorage.getItem(key)
+            로컬 스토리지에서 데이터를 가져온다.
+
+            3. localStorage.removeItem(key)
+            로컬 스토리지에서 데이터를 삭제한다.
+        */
+
+        // 데이터 저장하기
+        localStorage.setItem("foo", "bar");
+
+        // 데이터 가져오기
+        var data = localStorage.getItem("foo");
+        console.log(data); // bar
+        
      </script>
 </body>
 </html>
