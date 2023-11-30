@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>자동차 브랜드</h1>
+    <!-- <h1>자동차 브랜드</h1>
 
     <ul>
         <li class="brand">아우디</li>
@@ -16,10 +16,50 @@
     </ul>
 
     <script>
-        // brand 클래스를 가진 엘리먼트를 클래스 선택자로 모두 선택해보세요.
+        // Q1. brand 클래스를 가진 엘리먼트를 클래스 선택자로 모두 선택해보세요.
         var brands=document.getElementsByClassName("brand");
         //HTMLCollection(length)
         console.log(brands);
-    </script>
+    </script> -->
+
+    <h1>classList</h1>
+
+     <style>
+        .line-through {
+            text-decoration: line-through;
+        }
+     </style>
+
+     <ul>
+        <li class="item">list item</li>
+        <li class="item">list item</li>
+        <li class="item">list item</li>
+        <li class="item">list item</li>
+     </ul>
+
+     <script>
+        // Q2. item 클래스를 가진 엘리먼트에 모두 line-through 클래스를 추가해보세요.
+        // 스크립트 활용하기
+
+        var items=document.getElementsByClassName("item"); 
+        //getElementsByClassName은 유사 배열 객체를 반환한다. 
+        //직접적으로 배열 메서드를 사용할 수 없다 -> 객체를 배열로 변환해야함
+        console.log(items);
+
+        var itemsArray=Array.from(items); 
+        // Array.from()을 사용하면 배열처럼 보이는 객체를 실제 배열로 변환할 수 있다.
+
+        //HTMLCollection에서 반복문을 사용하여 각 엘리먼트에 접근하고 클래스에 추가하기
+        for (var i=0; i<items.length; i++) {
+            items[i].classList.add("line-through");
+        }
+
+    //    //각 배열요소에 실행될 함수 function(item) 정의
+    //     itemsArray.forEach(function(item) { 
+    //     item.classList.add("line-through"); 
+    // }); 
+
+    console.log(items[0].classList); //특정 엘리먼트의 클래스 출력
+     </script>
 </body>
 </html>
