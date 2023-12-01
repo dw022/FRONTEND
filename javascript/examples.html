@@ -48,7 +48,7 @@
       }
     </script> -->
 
-    <h1>Password toggle</h1>
+    <!-- <h1>Password toggle</h1>
 
     <style>
       .container {
@@ -83,8 +83,8 @@
     </input>
   </div>
     <script>
-      var pwd = document.getElementById("pwd");
-      var btn = document.getElementById("btn");
+      var pwd = document.getElementById("pwd"); //input id="pwd"
+      var btn = document.getElementById("btn"); //button id="btn"
 
       btn.addEventListener("click",HideShow);
 
@@ -100,7 +100,194 @@
           pwd.type = "password";
           btn.textContent="Hide"; //비번 숨기기
         }
+      };
+    </script> -->
+
+    <!-- <h1>See more</h1>
+    <style>
+      .btnclass {
+        cursor: pointer;
       }
+    </style>
+    
+    <p>나는<span id ="see">...</span></p>
+    <span id="btn" class="btnclass">See more</span>
+
+    <script>
+      var see = document.getElementById("see");
+      var id = document.getElementById("btn");
+
+    btn.addEventListener("click",Seemore);
+
+    function Seemore() {
+      //나머지 내용
+      var data= `할 수 있다.
+      으
+      악 아자아자 파
+      이팅`
+
+      see.textContent = data;
+
+      btn.remove(); //버튼 엘리먼트 제거
+    };
+    </script> -->
+
+    <!-- <h1>Top button</h1>
+
+    <style>
+      body {
+        /* 200px만큼 스크롤할 수 있다 */
+        height: calc(100vh + 200px);
+      }
+
+      /* id 일땐 . 대신 # */
+      #btn {
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        width:40px;
+        cursor: pointer;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <svg xmlns="http://www.w3.org/2000/svg" 
+    id="btn" 
+    class="hidden"
+    viewBox="0 0 512 512">
+    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM135.1 217.4l107.1-99.9c3.8-3.5 8.7-5.5 13.8-5.5s10.1 2 13.8 5.5l107.1 99.9c4.5 4.2 7.1 10.1 7.1 16.3c0 12.3-10 22.3-22.3 22.3H304v96c0 17.7-14.3 32-32 32H240c-17.7 0-32-14.3-32-32V256H150.3C138 256 128 246 128 233.7c0-6.2 2.6-12.1 7.1-16.3z"/>
+    </svg>
+
+    <script>
+      var btn = document.getElementById("btn");
+
+      //scroll 이벤트 - 스크롤 중
+      document.addEventListener("scroll", handleScroll);
+      btn.addEventListener("click",handleClick);
+
+      function handleScroll() {
+        
+        //문서탑과 뷰포트 탑 사이의 거리
+        //이때는 documentElement 기 때문에 btn이 아닌 this로 해야함
+        var scrollTop = this.documentElement.scrollTop;
+
+        console.log(scrollTop);
+
+        if (scrollTop > 50) { //충분히 스크롤 내렸을 때
+          // 탑버튼을 나타나게 함
+          btn.classList.remove("hidden");
+        } else {
+          // 탑버튼을 숨김
+          btn.classList.add("hidden");
+        }
+      }
+
+      function handleClick() {
+        document.documentElement.scrollTop = 0;
+      }
+    </script> -->
+
+    <style>
+      header {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        backdrop-filter: blur(8px);
+      }
+
+      .header-inner {
+        border-bottom: 1px solid #ddd;
+      }
+
+      #btn {
+        border: none;
+        background-color: transparent;
+        font-size: 2rem;
+      }
+
+      #nav {
+        border-bottom:1px solid #ddd;
+      }
+
+      #nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .link {
+        display: block;
+        padding:0.5rem;
+        text-align: center;
+        color:#000;
+      }
+
+      main {
+        margin-top: 4rem;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <header>
+      <div class="header-inner">
+        <button id="btn">&#9776;</button>
+      </div>
+
+      <!-- 메뉴 -->
+      <nav class="hidden" id="nav">
+        <ul>
+          <li>
+            <a href="#" class="link">Link</a>
+          </li>
+          <li>
+            <a href="#" class="link">Link</a>
+          </li>
+          <li>
+            <a href="#" class="link">Link</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Top navigation</h1>
+    </main>
+
+    <script>
+      var btn = document.getElementById("btn");
+      var nav = document.getElementById("nav");
+
+      var isNav = nav.classList.contains("hidden");
+      console.log(isNav);
+
+      // 메뉴 버튼 클릭
+      btn.addEventListener("click", function() {
+        //toggle: 클래스가 없으면 추가하고 있으면 제거한다.
+       nav.classList.toggle("hidden");
+    });
+
+    // 문서 클릭
+    // document - 이벤트 감지 가능 영역
+    document.addEventListener("click", function(e) {
+      // e - 이벤트 객체
+      console.log(e.target);
+      // e.target = 실제로 클릭된 요소
+      // 웹 페이지의 특정 요소를 클릭하면 그 요소에 대한 정보가 콘솔에 표시
+
+
+      //버튼을 제외한 부분을 클릭했을 때
+      if (e.target !== btn) {     // 클릭하는 요소가 nav버튼이 아니면
+        // 메뉴를 숨긴다.
+        nav.classList.add("hidden");
+      }
+    });
     </script>
+
   </body>
 </html>
