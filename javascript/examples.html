@@ -189,7 +189,7 @@
       }
     </script> -->
 
-    <style>
+    <!-- <style>
       header {
         position:fixed;
         top:0;
@@ -239,7 +239,6 @@
         <button id="btn">&#9776;</button>
       </div>
 
-      <!-- 메뉴 -->
       <nav class="hidden" id="nav">
         <ul>
           <li>
@@ -287,7 +286,64 @@
         nav.classList.add("hidden");
       }
     });
-    </script>
+    </script> -->
 
+    <style>
+      body {
+        height: calc(100vh + 200px);
+        margin:0;
+      }
+
+      #header {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        /* 기본값 */
+        background-color: transparent;
+        /* 애니메이션 효과 */
+        transition: background-color 0.5s;
+      }
+
+      .logo {
+        text-align: center;
+      }
+
+      .bg-image {
+        background-color: #ddd;
+        height:400px;
+      }
+
+      #header.active {
+        background-color: #fff;
+      }
+    </style>
+
+<header id="header">
+  <h3 class="logo">Transparent NavBar</h3>
+</header>
+
+<div class="bg-image"></div>
+    <script>
+
+      var header = document.getElementById("header");
+      
+      // window 또는 document
+      window.addEventListener("scroll", handleScroll);
+
+      function handleScroll() {
+        // 문서탑과 뷰포트 탑사이의 거리
+        var scrollTop = document.documentElement.scrollTop;
+
+        console.log(scrollTop);
+
+        if(scrollTop > 100) { // 충분히 스크롤 내렸을 때
+        header.classList.add("active");
+        } else { // 거의 가장 위까지 스크롤했을 때
+        header.classList.remove("active");
+        }
+      }
+    </script>
+    
   </body>
 </html>
