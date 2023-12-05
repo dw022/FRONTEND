@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        #side-bar {
+            /* border: 1px dashed; */
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: cornsilk;
+            transition: top 0.2s;
+            z-index: 1;
+        }
+
+        #side-bar ul {
+            margin-top: 5rem;
+        }
+
+        .link {
+            color:hotpink;
+        }
+
+        #overlay {
+            /* border:1px dashed; */
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            position: fixed;
+            background-color: cornsilk;
+        }
+
+
+        #side-bar.hidden {
+            top:-100%;
+        }
+
+        #overlay.hidden {
+            display: none;
+        }
+
+        #close.hidden {
+            display: none;
+        }
+
+        #close {
+            /* border:1px dashed; */
+            position:fixed;
+            right:0;
+            top:0;
+            display: inline-block;
+            /* display: inline; */
+            width:50px;
+            height:50px;
+            text-align: center;
+            cursor:pointer;
+        }
+        #close:after {content: "\00d7"; font-size:40pt; line-height: 40px;}
+    </style>
+
+    <h1>Side Bar</h1>
+    
+    <button id="btn">Open</button>
+
+    <nav id="side-bar" class="hidden">
+        <div id="close" class="hidden"></div>
+        <ul>
+            <li><a href="#" class="link">하낫</a></li>
+            <li><a href="#"class="link">둘</a></li>
+            <li><a href="#"class="link">셋</a></li>
+        </ul>
+    </nav>
+
+    <div id="overlay" class="hidden"></div>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var close = document.getElementById("close");
+        var sideBar = document.getElementById("side-bar");
+        var overlay = document.getElementById("overlay");
+
+        btn.addEventListener("click", function () {
+            sideBar.classList.remove("hidden");
+            overlay.classList.remove("hidden");
+            close.classList.remove("hidden");
+        })
+
+        close.addEventListener("click",function () {
+            sideBar.classList.add("hidden");
+            overlay.classList.add("hidden");
+            close.classList.add("hidden");
+        }) 
+        
+    </script>
+</body>
+</html>

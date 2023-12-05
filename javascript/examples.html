@@ -288,7 +288,7 @@
     });
     </script> -->
 
-    <style>
+    <!-- <style>
       body {
         height: calc(100vh + 200px);
         margin:0;
@@ -343,7 +343,80 @@
         header.classList.remove("active");
         }
       }
-    </script>
+    </script> -->
+
+    <style>
+      #side-bar {
+        position:fixed;
+        top:0;
+        left:0;
+        width:16rem;
+        height:100vh;
+        background-color: #fff;
+        transition: left 0.2s;
+        /* 
+        포지션 경쟁이 발생했을 때
+        값이 높을수록 우선순위를 갖는다. 
+        */
+        z-index:1;
+      }
+
+      #side-bar ul {
+        margin-top: 4rem;
+      }
+
+      .link {
+        color: #000;
+      }
+
+      #overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left:0;
+        bottom: 0;
+        background-color: rgba(0 0 0 / 0.2);
+      }
+
+      #side-bar.hidden {
+        left: -16rem;
+      }
+
+      #overlay.hidden {
+        display:none;
+      }
+    </style>
+
+    <h1>Side Bar</h1>
+
+    <button id="btn">Open</button>
     
+    <nav id="side-bar" class="hidden">
+    <ul>
+      <li><a href="#" class="link">Link</a></li>
+      <li><a href="#" class="link">Link</a></li>
+      <li><a href="#" class="link">Link</a></li>
+    </ul>
+  </nav>
+    
+  <div id="overlay" class="hidden"></div>
+
+  <script>
+    var btn = document.getElementById("btn");
+    var sideBar = document.getElementById("side-bar");
+    var overlay= document.getElementById("overlay");
+
+    // 버튼을 클릭했을 때
+    btn.addEventListener("click", function() {
+      overlay.classList.remove("hidden");
+      sideBar.classList.remove("hidden");
+    })
+
+    // 오버레이를 클릭했을 때
+    overlay.addEventListener("click", function() {
+      sideBar.classList.add("hidden");
+      overlay.classList.add("hidden");
+    })
+  </script>
   </body>
 </html>
