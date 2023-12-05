@@ -345,7 +345,7 @@
       }
     </script> -->
 
-    <style>
+    <!-- <style>
       #side-bar {
         position:fixed;
         top:0;
@@ -417,6 +417,60 @@
       sideBar.classList.add("hidden");
       overlay.classList.add("hidden");
     })
+  </script> -->
+
+  <style>
+    body {
+      height: calc(100vh + 200px);
+    }
+
+    #header {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      height:3rem;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-bottom:1px solid #ddd;
+      transition: top 0.2s;
+    }
+
+    #header.hidden {
+      /* height만큼 위로 올라간다. */
+      top: -3rem;
+    }
+  </style>
+  <header id="header">
+    Switch Header
+  </header>
+
+  <script>
+    var header = document.getElementById("header");
+    var prevScrollTop = 0;
+
+    document.addEventListener("scroll", handleScroll);
+
+    function handleScroll() {
+      var scrollTop = document.documentElement.scrollTop;
+      
+      // 이전 시점의 변수값에 접근 (이전 이벤트핸들러에서 대입한 값)
+      // 순서가 매우 중요
+      console.log("이전 스크롤탑:", prevScrollTop);
+      console.log("현재 스크롤탑:", scrollTop);
+
+      if (scrollTop > prevScrollTop) { //스크롤을 내릴때
+        header.classList.add("hidden");
+      } else {  // 스크롤을 올릴때
+        header.classList.remove("hidden");
+      }
+
+      // 이전 시점의 변수값에 접근하는 코드보다 아래에 있어야한다. ★★★★★
+      prevScrollTop = scrollTop;
+    }
   </script>
+
   </body>
 </html>
