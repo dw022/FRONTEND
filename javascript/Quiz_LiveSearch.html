@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        ul {
+            overflow:hidden;
+            list-style: none;
+            padding:0;
+            margin:0;
+            margin-top: 20px;
+        }
+
+        #input {
+            border: 1px solid;
+            width:20rem;
+            height:1.5rem;
+            box-sizing: border-box;
+            font-size:1rem;
+        }
+
+        .item {
+            padding:0.4rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <h1>Live Search</h1>
+    
+    <div class="searchbox">
+    <label>검색: <input type="text" name="" id="search" placeholder="키워드 입력"></label>
+    <button id="btn" disabled>Search</button>
+    </div>
+
+    <ul>
+        <li class="item">apple</li>
+        <li class="item">chicken</li>
+        <li class="item">cake</li>
+        <li class="item">운다</li>
+        <li class="item">빵</li>
+    </ul>
+
+    <script>
+        var search = document.getElementById("search");
+        var item = document.getElementsByClassName("item");
+
+        console.log(item);
+
+        search.addEventListener("keyup",filter);
+
+        function filter() {
+            var q = search.value;
+
+           console.log("검색어:", q); 
+           // 검색어와 아이템을 하나씩 비교하고 검색어를 포함하지 않은 아이템을 숨긴다.
+
+           for (var i=0; i<item.length; i++) {
+            var items = item[i];
+            console.log(item);
+            
+            // 검색어와 아이템을 비교한다.
+            if (items.textContent.indexOf(q) > -1) { // 검색어가 아이템과 일치하는 부분 O
+                items.classList.remove("hidden");
+            } else { // 검색어가 아이템과 일치하는 부분 X
+                items.classList.add("hidden");
+            }
+           }
+        }
+
+    </script>
+</body>
+</html>
