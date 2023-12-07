@@ -419,7 +419,7 @@
     })
   </script> -->
 
-  <style>
+  <!-- <style>
     body {
       height: calc(100vh + 200px);
     }
@@ -469,6 +469,41 @@
 
       // 이전 시점의 변수값에 접근하는 코드보다 아래에 있어야한다. ★★★★★
       prevScrollTop = scrollTop;
+    }
+  </script> -->
+
+  <h1>댓글 폼</h1>
+
+  <style>
+    #input {
+      border: none;
+      border-bottom: 1px solid;
+      outline: none;  /* input에 포커스됐을때 박스형태가 되는것을 방지. */
+      font-size: 1rem;
+    }
+  </style>
+
+  <input type="text" name="" id="input">
+  <button id="btn" disabled>comment</button>
+
+  <script>
+    var input = document.getElementById("input");
+    var btn = document.getElementById("btn");
+
+    // keyup이벤트: 키에서 손을 뗄 때
+    input.addEventListener("keyup", handleKeyup);
+
+    function handleKeyup() {
+      var content = this.value; //this = input
+
+      console.log("댓글:", content);
+
+      if (content!="") { // 댓글 내용이 있을 때
+       btn.disabled = false; // 버튼 활성화
+      } else { // 댓글 내용이 없을 때
+        btn.disabled = true; // 버튼 비활성화
+      }
+
     }
   </script>
 
