@@ -51,12 +51,13 @@
         var search = document.getElementById("search");
         var item = document.getElementsByClassName("item");
 
-        console.log(item);
+        
 
         search.addEventListener("keyup",filter);
 
         function filter() {
             var q = search.value;
+            // var q = this.value.toLowercase(); // 대소문자를 구분하지 않고 검색
 
            console.log("검색어:", q); 
            // 검색어와 아이템을 하나씩 비교하고 검색어를 포함하지 않은 아이템을 숨긴다.
