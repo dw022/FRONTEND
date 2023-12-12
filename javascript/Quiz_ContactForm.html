@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.5rem;
+        }
+
+        .col-span-2 {
+            grid-column-start: span 2;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom:0.25rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <h1>Contact Form</h1>
+
+    <form action="" id="form">
+        <div class="container">
+            <div class="form-group">
+                <label for="fname">First name</label>
+                <input type="text" id="fname" name="fname" placeholder="John">
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last name</label>
+                <input type="text" id="lname" name="lname" placeholder="Doe">
+            </div>
+
+            <div class="form-group col-span-2">
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" placeholder="01012345678">
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="done" class="hidden">
+        Thank you and we'll contact with you soon.
+    </p>
+
+    <script>
+        var form=document.getElementById("form");
+        // 검사 패턴
+        var fnamePatt=/^[a-zA-Z]+$/;
+        var lnamePatt=/^[a-zA-Z]+$/;
+        var phonePatt = /^\d{5,11}$/;
+        var done=document.getElementById("done");
+
+        form.addEventListener("submit", handleSubmit);
+
+        function handleSubmit(e) {
+            // submit 이벤트 시 필수
+            e.preventDefault();
+
+            // 입력 값에 접근
+            // form.elements["name"] -> name으로 input에 접근
+            var fname=form.elements["fname"].value;
+            var lname=form.elements["lname"].value;
+            var phone=form.elements["phone"].value;
+
+            // 검사
+            try { 
+                // 이름 검사
+                if (!fnamePatt.test(fname)) {
+                    throw "올바른 이름을 입력하세요";
+                }
+
+                // 성 검사
+                if (!lnamePatt.test(lname)) {
+                    throw "올바른 성을 입력하세요";
+                }
+
+                // 폰 검사
+                if(!phonePatt.test(phone)) {
+                    throw "올바른 번호를 입력하세요";
+                }
+
+                // Submit 성공
+                form.classList.add("hidden");
+                done.classList.remove("hidden");
+            } catch (error) { //에러 처리
+                alert(error);
+            }
+        }
+    </script>
+</body>
+</html>
