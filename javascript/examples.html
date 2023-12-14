@@ -661,7 +661,7 @@
       }
       }
   </script> -->
-  <style>
+  <!-- <style>
     .container {
       position: relative;
       width: 300px;
@@ -790,6 +790,199 @@
         }
       }
     }
-  </script>
+  </script> -->
+
+  <style>
+    /* frame */
+    #frame {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* container and images */
+    #container {
+      display: flex;
+      width: 600px;
+      transition: transform 0.2s;
+    }
+
+    .photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* buttons */
+    #prevBtn, #nextBtn {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: transparent;
+      border:none;
+      font-size: 2rem;
+      color: rgba(255 255 255/0.5);
+      z-index: 1; /* z-index 추가 */
+    }
+
+    #prevBtn {
+      left:0;
+    }
+
+    #nextBtn {
+      right:0;
+    }
+
+    /* indicator */
+    .indicator {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      border-radius: 99px;
+      margin:0 2px;
+      opacity: 2;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .active {
+      opacity: 1;
+    }
+    
+  </style>
+
+    <h1>Carousel</h1>
+
+    <div id="frame">
+    <!-- photos -->
+    <div id="container">
+      <img class="photo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMTFfNjYg%2FMDAxNzAyMjk3NjI1MjYy.Q6z0dm79iavBajRM_Fvi5pzS3GLGkIzhYAy6on_azcEg.qiwzuf_7mc2R6SrgHgbLOfFXO5sMdrl2T_pKXO9P-j8g.JPEG.ghkddbco48%2F%25C6%25C4%25BF%25F6%25C6%25DB%25C7%25C1%25B0%25C9_%25C8%25B2%25C4%25A1%25C1%25EE%25C4%25C9%25C0%25CD_%25281%2529.jpg&type=sc960_832" alt="">
+      <img class="photo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMDhfMTQ2%2FMDAxNzAxOTk3NzYyOTA5.38reBYepJwlsUb1RoLnvVF4mLcUGwQHlxaLuIU6MaKsg.TQH8btEqMBCJb-eOjzhBJEKQkIncGqDfcvlKm90vXi0g.JPEG.rhadiddl12%2Foutput_3836117195.jpg&type=sc960_832" alt="">
+      <img class="photo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMThfMjU5%2FMDAxNjM0NTYyNDk4NjE2._MgshZcRwzLksYWik9NxY79SauKeT0kUXSXdHqAZiqsg.89OVZg2euv6Hv48u6lQ23xe-UZ12Ja5weV6aM5_WEHAg.JPEG.sycjstk1004%2FIMG_2635.jpg&type=sc960_832" alt="">
+    </div>
+
+    <!-- buttons -->
+    <button id="prevBtn" class="hidden" onclick="move(-1)">&#10094;</button>
+    <button id="nextBtn" onclick="move(1)">&#10095;</button>
+
+    <!-- indicator -->
+    <div class="indicator">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+    <script>
+      var frame=document.getElementById("frame");
+      var container = document.getElementById("container");
+      var photos=document.getElementsByClassName("photo");
+      var imagewidth = 200; // 각 사진의 넓이
+      var index = 0; 
+      var firstIndex=0; // 첫번째 사진의 인덱스
+      var lastIndex = photos.length - 1; // 마지막 사진의 인덱스
+      var left= 0; // 컨테이너의 이동처리
+      var prevBtn=document.getElementById("prevBtn"); // 이전버튼
+      var nextBtn=document.getElementById("nextBtn"); // 다음버튼
+      var dots=document.getElementsByClassName("dot"); // 점
+      // 터치 관련
+      var x1, x2=0;
+      var turnOverPoint = 50;
+
+
+      // 터치 이벤트리스너
+
+      // touchstart: 터치 시작
+      container.addEventListener("touchstart", touchStartHandler);
+      // touchmove: 터치 중
+      container.addEventListener("touchmove", touchMoveHandler);
+      // touchend: 터치 끝
+      container.addEventListener("touchend", touchEndHandler);
+
+      function touchStartHandler(e) {
+        // e.touches[0].clientX: 뷰포트 내에서 손가락의 x좌표
+
+        // 터치 시작지점 저장
+        x1 = e.touches[0].clientX;
+
+        console.log(`[touch start] x1: ${x1}`);
+      }
+
+      function touchMoveHandler(e) {
+
+        // 터치 중인 지점의 x좌표
+        x2 = e.touches[0].clientX;
+
+        console.log(`[touchmove] x2: ${x2}`);
+      }
+
+      function touchEndHandler() {
+        console.log(`[touchend] x2 - x1: ${x2 - x1}`);
+
+        // 다음이미지로 이동하기 위해 손가락을 충분히 왼쪽으로 당겼을 때
+        var drawEnoughToNext = -(x2 - x1) > turnOverPoint;
+        // 이전이미지로 이동하기 위해 손가락을 충분히 오른쪽으로 당겼을 때
+        var drawEnoughToPrev = x2 - x1 > turnOverPoint;
+
+        // 첫번째 사진이 아니고 이전 이미지를 보기 위해 충분히 당긴 경우
+        if (index > firstIndex && drawEnoughToPrev) {
+          move(-1);
+        // 마지막 사진이 아니고 다음 이미지를 보기 위해 충분히 당긴 경우
+        } else if (index < lastIndex && drawEnoughToNext) {
+          move(1);
+        // 원래 이미지에 머문다
+        } else {
+          move(0);
+        }
+
+        // x1, x2 초기화
+        x1, x2 = 0;
+      }
+
+      // 클릭했을 때(버튼)
+      function move(data) {
+        index += data;
+        left = -(index * imagewidth);
+
+        console.log(`[move] index: ${index}, left: ${left}`);
+
+        // 이미지 이동
+        container.style.transform = `translateX(${left}px)`;
+
+        // 이전 버튼
+        if (index == firstIndex) { // 첫번째 사진일 때
+          prevBtn.classList.add("hidden");
+        } else { // 첫번째 사진이 아닐 때
+          prevBtn.classList.remove("hidden");
+        }
+
+        // 다음 버튼
+        if (index==lastIndex) {
+          nextBtn.classList.add("hidden");
+        } else {
+          nextBtn.classList.remove("hidden");
+        }
+
+        // 인디케이터
+        for (var i=0; i<dots.length; i++) {
+          if (i===index) {
+            dots[i].classList.add("active");
+          } else {
+            dots[i].classList.remove("active");
+          }
+        }
+      }
+    </script>
 </body>
 </html>
