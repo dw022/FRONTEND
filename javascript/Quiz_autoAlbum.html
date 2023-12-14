@@ -9,46 +9,46 @@
     <style>
         .container {
             position: relative;
-            width:300px;
+            width:400px;
             height: 300px;
-            overflow:hidden;
         }
 
         /* main image */
         #main {
             width: inherit;
-            height:inherit;
+            height: inherit;
             object-fit: cover;
-            transition: transform 1s ease-in-out;
         }
 
         /* photos */
         .thumbnails {
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
             display: flex;
-            margin-top:10px;
+            justify-content: center;
         }
 
         .photo {
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
             object-fit: cover;
-            cursor:pointer;
-            margin-right: 5px;
         }
 
         .active { /* 아웃라인 */
-      outline: 4px solid gray;
-    }
+        outline: 4px solid gray;
+        z-index:1;
+        }
     </style>
 
     <h1>Auto Album</h1>
-
     <div class="container">
-        <img class="photo active" src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjZfMjgz/MDAxNTk1NzcxMDgxODk2.EOULlKy0I3iSMrwscNLBe7laH2SYvM1wbx8g36xF2Zkg.SghQEdRMgrqa4LCe9bsNFK85Hy-AWxN088K6C7OcWDsg.PNG.kizaki56/00.png?type=w800" onclick="jump(0)" alt="">
+        <img id="main" src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjZfMjgz/MDAxNTk1NzcxMDgxODk2.EOULlKy0I3iSMrwscNLBe7laH2SYvM1wbx8g36xF2Zkg.SghQEdRMgrqa4LCe9bsNFK85Hy-AWxN088K6C7OcWDsg.PNG.kizaki56/00.png?type=w800" alt="">
+    <div class="thumbnails">
+        <img class="photo active" src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MjZfMjgz/MDAxNTk1NzcxMDgxODk2.EOULlKy0I3iSMrwscNLBe7laH2SYvM1wbx8g36xF2Zkg.SghQEdRMgrqa4LCe9bsNFK85Hy-AWxN088K6C7OcWDsg.PNG.kizaki56/00.png?type=w800" alt="">
+        <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrTY4EmaoTEvcnp7Mq1PaY6OvCJVnZvPkcA&usqp=CAU" alt="">
+        <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHxEDUL4UxSvgGF3LUO7kYhUkqoDnNuw4zuQ&usqp=CAU" alt="">
     </div>
-    
-      
-      </div>
 
     <script>
         // setInterval(callback, ms)
@@ -57,10 +57,49 @@
         var main = document.getElementById("main");
         var index=0;
 
-        setInterval(function () {
-            var time = new Date().toLocaleDateString();
-            console.log(time);
-        }, 1000)
+        setInterval(interval, 3000);
+
+        function interval() {
+            index ++;
+
+            if(index >2) index=0;
+
+            console.log(index);
+
+            // 메인이미지 업데이트
+            main.src = photos[index].src;
+
+            for (var i=0; i<photos.length; i++) {
+                photos[i].classList.remove("active");
+            }
+
+            photos[index].classList.add("active");
+        };
+
+        // function updateAlbum() {
+        //     main.src = photos[index].src;
+
+        //     // 모든 사진에서 활성 클래스 제거
+        //     for (var i=0; i< photos.length; i++) {
+        //         photos[i].classList.remove("active");
+        //     }
+
+        //     // 현재 활성 사진에 활성 클래스 추가
+        //     photos[index].classList.add("active");
+        // }
+
+        // // jump 함수를 호출하여 다음 사진으로 이동
+        // function jump(nextIndex) {
+        //     index = nextIndex;
+        //     updateAlbum();
+        // }
+
+        // // 3초마다 다음 사진으로 이동
+        // setInterval(function () {
+        //     index = (index + 1) % photos.length;
+        //     updateAlbum();
+        // }, 3000); // 3000ms = 3s
+
     </script>
 </body>
 </html>
