@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        #container {
+            display: flex;
+            position: relative;
+        }
+        
+        #overlay {
+          position: fixed;
+          top:0;
+          left: 0;
+          width:100%;
+          height: 100%;
+          background-color: rgba(0 0 0 / 0.2);
+          z-index:1;
+        }
+
+        .thumbnails {
+          width:100px;
+          height:100px;
+          object-fit: cover;
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      
+        #modal {
+          display: block;
+          width: 400px;
+          height:400px;
+          margin: 100px;
+          margin: 100px auto 0;
+          object-fit: cover;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+      </style>
+
+      <h1>Q. Modal Gallery</h1>
+
+      <div id="container">
+      <img class="thumbnails" src="https://blog.kakaocdn.net/dn/s6ka9/btrvxkm7Iy9/NzUG0PaYMkyGc0GGuGhJn0/img.jpg" alt="" onclick="Ifclick(0)">
+      <img class="thumbnails" src="https://d12zq4w4guyljn.cloudfront.net/750_750_20230524122303_photo1_7bdfab5b6008.jpg" alt="" onclick="Ifclick(1)">
+      <img class="thumbnails" src="https://mblogthumb-phinf.pstatic.net/MjAyMzAyMTZfMTkz/MDAxNjc2NTQ3MDY2MTk0.Ixn_rPX2wPdR9hZd_w29iWSnISwSv9b6fGg-YTzCOw8g.UsbQuU0LUpGXcz_AoUumor06eRetWCW2fRIi3YlRAN4g.JPEG.neat_hy/1676547065019.jpg?type=w800" alt="" onclick="Ifclick(2)">
+      </div>
+
+    <div id="overlay" class="hidden">
+            <img src="" alt="" id="modal">
+        </div>
+    </div>
+
+    <script>
+      var modal=document.getElementById("modal");
+      var overlay = document.getElementById("overlay");
+      var thumbnails = document.getElementsByClassName("thumbnails");
+
+      // 모든 썸네일에 대해 클릭 이벤트 처리
+      function Ifclick(index) {
+        // 오버레이 나타남
+        overlay.classList.remove("hidden");
+        // 썸네일의 소스를 모달 이미지에 전달
+        modal.src = thumbnails[index].src;
+      }
+
+      // 오버레이 클릭
+      overlay.addEventListener("click",function() {
+        overlay.classList.add("hidden");
+        })
+    </script>
+    </body>
+</html>
