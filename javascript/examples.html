@@ -1056,5 +1056,40 @@
       })
     </script> -->
 
+    <style>
+      .dark-mode {
+        background-color: black;
+        color: gray;
+      }
+    </style>
+
+    <h1>테마 선택</h1>
+
+    <input type="checkbox" id="checkbox" name="">
+    <label for="checkbox">Dark Mode</label>
+
+    <ul id="list">
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+    </ul>
+
+    <script>
+      var checkbox = document.getElementById("checkbox");
+      var list = document.getElementById("list");
+
+      checkbox.addEventListener("change", function() {
+        var checked = this.checked;
+        // 체크박스가 채워지면 다크모드 ON 아니면 OFF
+        // checkbox.checked는 체크박스의 현재 상태를 나타내며, 
+        // checkbox.checked=true 이면 "dark-mode" 클래스를 추가하고, false이면 제거합니다.
+
+        // classList.toggle 은 클래스가 없으면 추가하고, 이미 있는 경우에는 제거하는 토글 동작
+        document.body.classList.toggle("dark-mode", checkbox.checked);
+
+        console.log("checked:", checked);
+      });
+      
+    </script>
 </body>
 </html>
