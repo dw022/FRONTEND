@@ -792,7 +792,7 @@
     }
   </script> -->
 
-  <style>
+  <!-- <style>
     /* frame */
     #frame {
       width: 200px;
@@ -866,18 +866,18 @@
     <h1>Carousel</h1>
 
     <div id="frame">
-    <!-- photos -->
+    <p>사진</p>
     <div id="container">
       <img class="photo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMTFfNjYg%2FMDAxNzAyMjk3NjI1MjYy.Q6z0dm79iavBajRM_Fvi5pzS3GLGkIzhYAy6on_azcEg.qiwzuf_7mc2R6SrgHgbLOfFXO5sMdrl2T_pKXO9P-j8g.JPEG.ghkddbco48%2F%25C6%25C4%25BF%25F6%25C6%25DB%25C7%25C1%25B0%25C9_%25C8%25B2%25C4%25A1%25C1%25EE%25C4%25C9%25C0%25CD_%25281%2529.jpg&type=sc960_832" alt="">
       <img class="photo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEyMDhfMTQ2%2FMDAxNzAxOTk3NzYyOTA5.38reBYepJwlsUb1RoLnvVF4mLcUGwQHlxaLuIU6MaKsg.TQH8btEqMBCJb-eOjzhBJEKQkIncGqDfcvlKm90vXi0g.JPEG.rhadiddl12%2Foutput_3836117195.jpg&type=sc960_832" alt="">
       <img class="photo" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMThfMjU5%2FMDAxNjM0NTYyNDk4NjE2._MgshZcRwzLksYWik9NxY79SauKeT0kUXSXdHqAZiqsg.89OVZg2euv6Hv48u6lQ23xe-UZ12Ja5weV6aM5_WEHAg.JPEG.sycjstk1004%2FIMG_2635.jpg&type=sc960_832" alt="">
     </div>
 
-    <!-- buttons -->
+    <p>버튼</p>
     <button id="prevBtn" class="hidden" onclick="move(-1)">&#10094;</button>
     <button id="nextBtn" onclick="move(1)">&#10095;</button>
 
-    <!-- indicator -->
+    <p>인디케이터</p>
     <div class="indicator">
       <span class="dot active"></span>
       <span class="dot"></span>
@@ -998,6 +998,62 @@
           }
         }
       }
+    </script> -->
+
+    <style>
+      #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0 0 0 / 0.2);
+      }
+
+      .modal {
+        background-color: #fff;
+        margin: 100px auto 0;
+        max-width: 20rem;
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <h1>Modal</h1>
+
+    <button id="btn">Open</button>
+
+    <div id="overlay" class="hidden">
+      <div class="modal">
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quas error expedita illo accusamus reiciendis quia officiis consequatur ratione, nostrum accusantium neque molestias doloremque deserunt illum a voluptatibus quam sit.</p>
+      </div>
+    </div>
+
+    <script>
+      var overlay = document.getElementById("overlay");
+      var btn = document.getElementById("btn");
+
+      // 오픈 버튼을 클릭했을 때
+      btn.addEventListener("click", function() {
+        overlay.classList.remove("hidden");
+      })
+
+      // 오버레이를 클릭했을 때
+      overlay.addEventListener("click", function(e) {
+
+        // 실제 이벤트가 발생한 엘리먼트
+        console.log(e.target);
+
+        // 모달을 제외한 오버레이 부분을 클릭했을때
+        if (e.target === this) {
+          overlay.classList.add("hidden");
+        }
+      })
     </script>
 </body>
 </html>
