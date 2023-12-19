@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       #container {
+        background-color: gray;
+        color:#fff;
+        padding:1rem;
+       }
+
+       #btn-close, #btn-noshow {
+        padding: 0.5rem 0.75rem;
+       }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <h1> Block Promotion </h1>
+
+    <div id="container" >
+    <p> Lorem ipsum dolor sit amet consectetur, 
+        adipisicing elit. Pariatur eum ipsam natus quae, 
+        repellendus cum enim voluptatum unde est iste amet voluptatibus 
+        quia quisquam similique ex neque dolores exercitationem autem?
+        <button id="btn-close">Close</button>
+        <button id="btn-noshow">Do not show more anymore</button>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var btncls = document.getElementById("btn-close");
+        var btnnoshow = document.getElementById("btn-noshow");
+        var content = document.getElementById("container");
+
+        // 페이지가 로드되었을 때
+        if (localStorage.getItem("block")) { // 로컬스토리지 차단 정보가 있는 경우
+            content.classList.add("hidden");
+        }
+        // Close 버튼을 클릭했을 때
+        btncls.addEventListener("click", function() {
+            content.classList.add("hidden");
+        });
+
+        // Don't show 버튼을 클릭했을 때
+        btnnoshow.addEventListener("click", function() {
+            content.classList.add("hidden");
+            // 차단 데이터를 로컬 스토리지에 저장
+            localStorage.setItem("block", new Date());
+        });
+    });
+    </script>
+</body>
+</html>
