@@ -1056,7 +1056,7 @@
       })
     </script> -->
 
-    <style>
+    <!-- <style>
       .dark-mode {
         background-color: black;
         color: gray;
@@ -1090,6 +1090,61 @@
         console.log("checked:", checked);
       });
       
+    </script> -->
+
+    <style>
+      input {
+        width: 100%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0 0.5rem;
+      }
+
+      .item {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .delete-btn {
+        cursor: pointer;
+      }
+    </style>
+
+    <input type="search" placeholder="Search Please" disabled>
+
+    <ul>
+      <li id="h0" class="item">
+        <span>Oh now, knew we would crash at the speed that we are going</span>
+        <span class="delete-btn" onclick="deleteItem('h0')">&times;</span>
+      </li>
+      <li id="h1" class="item">
+        <span>I loved you dangerously</span>
+        <span class="delete-btn" onclick="deleteItem('h1')">&times;</span>
+      </li>
+      <li id="h2" class="item">
+        <span>More than the air that I breathe</span>
+        <span class="delete-btn" onclick="deleteItem('h2')">&times;</span>
+      </li>
+      <li id="h3" class="item">
+        <span>But you are the fire, I'm gasoline</span>
+        <span class="delete-btn" onclick="deleteItem('h3')">&times;</span>
+      </li>
+    </ul>
+
+    <script>
+      function deleteItem(id) {
+        console.log("id:", id);
+
+        // 전달받은 id와 일치하는 id를 가진 엘리먼트 제거
+        document.getElementById(id).remove();
+      }
     </script>
 </body>
 </html>
