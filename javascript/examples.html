@@ -1092,7 +1092,7 @@
       
     </script> -->
 
-    <style>
+    <!-- <style>
       input {
         width: 100%;
         padding: 0.5rem;
@@ -1144,6 +1144,102 @@
 
         // 전달받은 id와 일치하는 id를 가진 엘리먼트 제거
         document.getElementById(id).remove();
+      }
+    </script> -->
+
+    <style>
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .item {
+        margin-bottom: 0.25rem;
+      }
+
+      .btn {
+        background-color: #eee;
+        border: none;
+        width: 100%;
+        padding: 0.5rem;
+        font-size:1rem;
+        text-align: left;
+      }
+
+      /*
+        가상 엘리먼트 (Pseudo-element)
+        CSS에서 정의된다
+        HTML 트리상에서는 존재하지 않는다.
+        코드의 재사용성을 높이기 위해 사용된다.
+
+        1. 사용 방법
+        선택자::가상 엘리먼트
+
+        2. 종류 
+        1) before - 선택자의 컨텐츠의 앞에 위치한다.
+        2) after - 선택자의 컨텐츠의 뒤에 위치한다.
+        3) marker - 선택자의 before (가상 엘리먼트) 앞에 위치한다.
+      */
+
+      .btn::after {
+        content: "+";
+        float:right;
+      }
+
+      .content {
+        /* 최대높이 */
+        max-height:0;
+        overflow:hidden;
+      }
+
+      /* 컨텐츠 내용의 크기 증가 */
+      .active .content {
+        max-height:200px;
+      } 
+
+      /* active 클래스가 활성화됐을 때 -> 가상 엘리먼트를 - 로 변경 */
+      .active .btn::after {
+        content: "-";
+        float: right;
+      }
+    </style>
+
+    <h1>아코디언</h1>
+
+    <ul>
+      <li class="item">
+        <button class="btn" onclick="f(0)">心 - DK</button>
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo, maiores reiciendis facilis, provident et, in porro ratione molestias architecto veritatis minus suscipit iure quidem voluptate consequuntur recusandae ipsum cumque.
+          </p>
+        </div>
+      </li>
+      <li class="item">
+        <button class="btn" onclick="f(1)">Dangerously - Charlie Puth</button>
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo, maiores reiciendis facilis, provident et, in porro ratione molestias architecto veritatis minus suscipit iure quidem voluptate consequuntur recusandae ipsum cumque.
+          </p>
+        </div>
+      </li>
+      <li class="item">
+        <button class="btn" onclick="f(2)">너와 함께(With You) - 김민석(Kim Min Seok)</button>
+        <div class="content">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo, maiores reiciendis facilis, provident et, in porro ratione molestias architecto veritatis minus suscipit iure quidem voluptate consequuntur recusandae ipsum cumque.
+          </p>
+        </div>
+      </li>
+    </ul>
+
+    <script>
+      var items = document.getElementsByClassName("item");
+
+      function f(index) {
+        items[index].classList.toggle("active");
+        console.log(index);
       }
     </script>
 </body>
