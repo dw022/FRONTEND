@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eee;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 12rem;
+            padding: 1rem;
+            border: none;
+            box-shadow: 0 0 10px #ddd;
+            outline: none;
+            resize: none;
+        }
+
+        #add-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            margin: 1rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #add-btn:hover {
+            background-color: #222;
+        }
+    </style>
+
+    <button id="add-btn">New Note +</button>
+    <div id="container"></div>
+
+    <script>
+        var container = document.getElementById("container");
+        var addBtn = document.getElementById("add-btn");
+        var notes;
+
+        // 앱 첫사용인 경우 샘플 메모를 생성
+        if (!localStorage.getItem("noteStorage")) {
+            seedData();
+        }
+        // 이벤트리스너 연결
+        // DOMContentLoaded: HTML 문서가 로드되었을 때
+        document.addEventListener("DOMContentLoaded", getNotes);
+        addBtn.addEventListener("click", addNote);
+
+        // 1. CRUD 처리 함수
+
+        // 노트를 가져오는 함수
+        function getNotes() {
+            // JSON.parse(json): json을 객체로 변환
+            // 로컬스토리지에서 가져온 노트 데이터를 notes 변수에 저장
+            notes = JSON.parse(localStorage.getItem("noteStorage"));
+
+            // 렌더링 처리
+            for (var i=0; i<notes.length; i++) {
+                createNoteElement(notes[i].id, notes[i].content);
+            }
+        }
+
+        // 노트 추가
+        function addNote() {
+            var newNote = {id: "n" + Date.now(), content: ""};
+            // Date.now() : 현재 시간을 ms로 리턴한다.
+
+            // 노트 리스트에 새 노트를 추가한다.
+            notes.push(newNote);
+
+            // 로컬 스토리지 동기화
+            saveData(notes);
+
+            // 새 노트를 렌더링한다.
+            createNoteElement(newNote.id, newNote.content);
+        };
+
+        // 노트 편집
+        function editNote(id, content) {
+            console.log("편집할 메모:", id, content);
+
+            // 전달받은 id와 일치하는 노트 객체의 내용을 전달받은 content로 업데이트한다.
+            for (var i=0; i<notes.length; i++) {
+                if (notes[i].id == id) {
+                    notes[i].content = content;
+                }
+            }
+        };
+
+        // 노트 삭제
+        function deleteNote(id, noteElement) {
+            // 전달받은 id와 일치하는 노트 객체를 노트 리스트에서 제거한다.
+            for (var i=0; i<notes.length; i++) {
+                if (notes[i].id == id) {
+                    // splice(index, count): 배열에서 index로부터 count만큼의 아이템을 삭제한다.
+                    notes.splice(i, 1);
+                }
+            }
+
+            // 로컬 스토리지 동기화
+            saveDate(notes);
+
+            // 문서에서 노트 제거
+            noteElement.remove();
+        };
+
+
+        // 2. 헬퍼 함수
+
+        // 로컬 스토리지 동기화 처리
+        function saveData(notes) {
+            // JSON.stringify(객체): 객체를 JSON 포맷으로 변환
+            // notes 객체를 JSON 포맷으로 변환 후 로컬스토리지에 저장한다.
+            localStorage.setItem("noteStorage", JSON.stringify(notes));
+        }
+
+        // 씨드(샘플) 데이터 생성
+        function seedData() {
+            // 샘플 메모
+            var seed = [{ id: "n0", content: "My first memo!"}];
+
+            // 로컬스토리지에 저장한다.
+            saveData(seed);
+        }
+
+        // 노트의 렌더링 처리
+        function createNoteElement(id, content) {
+            // 노트 엘리먼트(textarea) 생성
+            var noteElement = document.createElement("textarea");
+
+            // 노트의 내용을 전달받은 content로 업데이트한다.
+            noteElement.value = content;
+
+            // 노트에 이벤트리스너를 연결한다.
+            noteElement.addEventListener("keyup", function () {
+                editNote(id, this.value);
+            });
+
+            // 노트에 이벤트 리스너를 연결한다.
+            // dbclick: 더블 클릭
+            noteElement.addEventListener("dblclick", function () {
+                deleteNote(id, this);
+            });
+
+            // 엘리먼트를 컨테이너의 첫번째 자식으로 추가한다.
+            container.prepend(noteElement);
+        }
+    </script>
+</body>
+</html>
