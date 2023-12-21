@@ -1243,7 +1243,7 @@
       }
     </script> -->
 
-    <style>
+    <!-- <style>
       input {
         display: none;
       }
@@ -1311,6 +1311,59 @@
           }
         }
       }
+    </script> -->
+
+    <h1>Drag and Drop</h1>
+
+    <style>
+      #drop-zone {
+        border: 4px dashed #ddd;
+        padding: 4rem;
+        text-align: center;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <div id="drop-zone">
+      <p><i>여기</i>에 파일을 드랍하세요.</p>
+    </div>
+
+    <p id="done" class="hidden">Submit Success</p>
+
+    <script>
+      var dropZone = document.getElementById("drop-zone");
+      var done = document.getElementById("done");
+
+      // dragover 이벤트: 드래그 中
+      dropZone.addEventListener("dragover", dragOverHandler);
+      // drop 이벤트: 드랍
+      dropZone.addEventListener("drop", dropHandler);
+
+      function dragOverHandler(e) {
+        // 브라우저가 파일을 여는 것을 취소한다.
+        e.preventDefault();
+
+        console.log("Draging...");
+      };
+
+      function dropHandler(e) {
+        // 브라우저가 파일을 여는 것을 취소한다.
+        e.preventDefault();
+
+        console.log("Dropped!");
+
+        var files = e.dataTransfer.files;
+
+        console.log("Selected Files:", files);
+
+        // 이 부분에서 서버 제출
+        // 폼을 숨기고 성공 메세지를 보여준다.
+        dropZone.classList.add("hidden");
+        done.classList.remove("hidden");
+      };
     </script>
 </body>
 </html>
