@@ -1313,7 +1313,7 @@
       }
     </script> -->
 
-    <h1>Drag and Drop</h1>
+    <!-- <h1>Drag and Drop</h1>
 
     <style>
       #drop-zone {
@@ -1359,11 +1359,55 @@
 
         console.log("Selected Files:", files);
 
-        // 이 부분에서 서버 제출
+        // 이 부분에서 서버에 제출
         // 폼을 숨기고 성공 메세지를 보여준다.
         dropZone.classList.add("hidden");
         done.classList.remove("hidden");
       };
+    </script> -->
+
+    <style>
+      .el {
+        /* opacity: 0; */
+        transition: opacity 0.5s;
+      }
+
+      .active {
+        opacity: 1;
+      }
+    </style>
+    <h1>엘리먼트 생성 효과</h1>
+
+    <h1 class="el">어느날, 아버지와 아들이 함께 산 속으로 등산을 떠났어요. 아버지는 자연을 사랑하며 아들에게 자연의 아름다움을 가르치려고 했죠.
+      산 꼭대기에 도착했을 때, 아버지가 말했습니다. "이렇게 높이 올라와 보니 세상이 얼마나 크고 아름다운지 알겠지?"  
+      아들은 기분 좋게 웃으며 대답했습니다. "네, 아빠. 정말 멋진 곳이에요."</h1>
+    <h1 class="el">Once, a father and his son set out for a hike into the mountains. The father, deeply in love with nature, aimed to teach his son the beauty of the natural world.
+      Upon reaching the summit, the father spoke, "Climbing up this high, you realize how vast and beautiful the world is, don't you?"
+      The son, with a cheerful smile, replied, "Yes, Dad. It's truly an amazing place."</h1>
+    <h1 class="el">ある日、父と息子は山にハイキングに出かけました。父は自然を深く愛し、息子に自然の美を教えようとしていました。
+      頂上に到達したとき、父は言いました。「こんなに高く登ってみると、世界がどれだけ広く美しいかがわかるでしょう？」   
+      息子は幸せそうに笑って答えました。「はい、お父さん。本当に素晴らしい場所ですね。」</h1>
+    <h1 class="el">有一天，父亲带着儿子一同踏上了山间的徒步之旅。父亲深爱着大自然，渴望向儿子传授自然之美。
+      当他们登上山巅时，父亲说道：“站在这么高的地方，你能感受到这个世界有多么辽阔而美丽吧？”  
+      儿子满怀愉悦地笑着回答：“是的，爸爸。这真是一个令人惊叹的地方。”</h1>
+
+    <script>
+      var els = document.getElementsByClassName("el");
+
+      document.addEventListener("scroll", function () {
+        // 뷰포트의 높이
+        var vh = window.innerHeight;
+
+        for (var i=0; i<els.length; i++) {
+          // 엘리먼트 탑과 뷰포트 탑 사이의 거리
+          var y=els[i].getBoundingClientRect().y;
+
+          // y값이 vh보다 작아지면 뷰포트에 진입했다는 것을 알 수 있다.
+        if (y<vh*0.9) {
+          els[i].classList.add("active");
+        }
+        }
+      })
     </script>
 </body>
 </html>
