@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        input {
+          display: none;
+        }
+  
+        label {
+          display: inline-block;
+          padding: 0.5rem;
+        }
+  
+        input:checked + label {
+          background-color: #000;
+          color: #fff;
+        }
+  
+        .hidden {
+          display: none;
+        }
+      </style>
+
+    <h1>Tab Contents</h1>
+
+    <div class="">
+    <input type="radio" name="car" id="kr" checked>
+      <label for="kr" onclick="f('kr')">
+      Korea 
+    </label>
+    <input type="radio" name="car" id="ca" checked>
+      <label for="ca" onclick="f('ca')">
+      Canada
+    </label>
+    <input type="radio" name="car" id="se" checked>
+      <label for="se" onclick="f('se')">
+      Sweden
+    </label>
+    
+        <p class="item kr">대한민국 김장김치엔 수육</p>
+        <p class="item ca hidden">메이플시럽</p>
+        <p class="item se hidden">팬케이크</p>
+      </div>
+        <script>
+            var items=document.getElementsByClassName("item");
+
+            function f(tab) {
+                console.log("Tab:", tab);
+
+                for (var i=0; i<items.length; i++) {
+                    if(items[i].classList.contains(tab)) { // 아이템의 클래스가 필터를 포함하는경우
+                      // 아이템을 보이게한다. 
+                        items[i].classList.remove("hidden");
+                    } else { // 포함하지 않은 경우
+                      // 아이템을 숨긴다.
+                        items[i].classList.add("hidden");
+                    }
+                }
+            }
+        </script>
+</body>
+</html>
