@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <style>
+    <!-- <style>
         * {
             box-sizing: border-box;
         }
@@ -162,6 +162,365 @@
             // 엘리먼트를 컨테이너의 첫번째 자식으로 추가한다.
             container.prepend(noteElement);
         }
-    </script>
+    </script> -->
+
+<!-- <style>
+    /* 전체선택자 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #333;
+      width: 2000px;
+      height: 2000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav {
+      position: fixed;
+      padding: 1rem;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #fff;
+    }
+
+    .title {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+    }
+
+    .filter-input {
+      width: 100%;
+    }
+  </style>
+
+  <nav>
+    <h3 class="title">JS Image Editor &#127912;</h3>
+
+    <div class="filter-group">
+      <label for="brightness">Brigtness</label>
+      <input 
+        type="range" 
+        name="brightness" 
+        id="brightness" 
+        class="filter-input" 
+        min="0" 
+        max="200" 
+        value="100"
+        oninput="setFilter(this)"
+      >
+      <p class="numeric-value">100</p>
+    </div>
+
+    <div class="filter-group">
+      <label for="saturate">Saturate</label>
+      <input
+        type="range" 
+        name="saturate" 
+        id="saturate" 
+        class="filter-input" 
+        min="0" 
+        max="200" 
+        value="100"
+        oninput="setFilter(this)"
+      >
+      <p class="numeric-value">100</p>
+    </div>
+
+    <div class="filter-group">
+      <label for="invert">Invert</label>
+      <input 
+        type="range" 
+        name="invert" 
+        id="invert" 
+        class="filter-input" 
+        min="0" 
+        max="100" 
+        value="0"
+        oninput="setFilter(this)"
+      >
+      <p class="numeric-value">0</p>
+    </div>
+
+    <div class="filter-group">
+      <label for="blur">Blur</label>
+      <input 
+        type="range" 
+        name="blur" 
+        id="blur" 
+        class="filter-input" 
+        min="0" 
+        max="10" 
+        value="0"
+        oninput="setFilter(this)"
+      >
+      <p class="numeric-value">0</p>
+    </div>
+  </nav>
+
+  <canvas id="canvas"></canvas>
+
+
+  <script>
+    /*
+      * 캔버스 API
+
+      문서에서 자바스크립트를 활용해 그래픽을 표현할 수 있다
+      예) 데이터 시각화, 사진 조작, 애니메이션, 게임 등
+
+      1 사용방법
+      1) canvas - 그래픽을 표현하기 위한 공간
+      2) context - 표현 도구 (펜)
+    */
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d"); // context
+    var filter = {}; // 필터 데이터 수집
+    var UNIT = { // 각 필터의 단위 데이터
+      brightness: '%',
+      saturate: '%',
+      invert: '%',
+      blur: 'px',
+    }
+    // 이미지 엘리먼트 생성
+    var imgElement = new Image();
+    // 이미지의 src 적용
+    imgElement.src = "https://i.namu.wiki/i/oMGRC944XdCwbvvFTV_h2e_4Oco6fDSIFOtFXSjYgsEkziZULioJpuHJuAor6GNqvJo8dz9xVPqBuE2lklPLnw.webp";
+    // load 이벤트: 엘리먼트가 로드되었을 때
+    imgElement.addEventListener("load", drawImage);
+
+    function drawImage() {
+      // 캔버스의 크기를 이미지의 원본크기에 맞춘다
+      canvas.width = imgElement.width;
+      canvas.height = imgElement.height;
+
+      // 캔버스에 이미지를 나타낸다
+      ctx.drawImage(imgElement, 0, 0);
+      // ctx.drawImage(이미지 엘리먼트, left, top)
+    }
+
+    // input 이벤트 핸들러
+    function setFilter(input) {
+      // this - 이벤트핸들러를 호출한 엘리먼트
+      // console.log(input);
+
+      var name = input.name;
+      var value = input.value;
+
+      filter[name] = value + UNIT[name];
+
+      // 필터 객체
+      console.log(filter)
+
+      // 필터 데이터를 캔버스가API가 요구하는 형식에 맞게 문자열로 변환해야 한다
+
+      // 문자열타입으로 필터를 수집할 변수
+      var filterInString = [];
+
+      // for in 반복문 - 객체 순회용 반복문
+      // for (key in 객체)
+      for (var key in filter) { 
+        // key가 될수있는 값 - brightness, saturate, invert, blur
+        filterInString.push(`${key}(${filter[key]})`);
+      }
+
+      // 캔버스에 필터 적용
+      ctx.filter = filterInString.join(" ");
+      // join(분리자) -  배열 메서드, 배열의 아이템을 분리자로 구분된 문자열로 리턴한다
+      ctx.drawImage(imgElement, 0, 0);
+
+      // input밑에 수치값 적용
+      input.nextElementSibling.textContent = value;
+      // 엘리먼트A.nextElementSibling - 엘리먼트A 바로 아래에 있는 엘리먼트 (형제관계)
+    }
+
+  </script> -->
+
+  <h1>SPA 구조 만들기</h1>
+
+  <style>
+    a {
+      color: #000;
+    }
+  </style>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="#/">Home</a>
+      </li>
+      <li>
+        <a href="#/posts">Posts</a>
+      </li>
+      <li>
+        <a href="#/contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="main"></div>
+
+
+  <script>
+    /* 
+      배경 지식
+
+      # SPA (Single Page Application)의 특징
+      MPA (Multi Page Application)에 반대되는 개념
+      자바스크립트를 이용하여 뷰를 업데이트한다
+      속도가 빠르고 화면 전환이 부드럽다
+
+
+      # URL (Uniform Resource Locator)
+      웹사이트 또는 서버의 주소
+      예) https://google.com/news/sports
+
+      1 URL의 구조
+      1) 경로 (path)
+      리소스의 경로
+      - 예
+      https://google.com/news/sports
+
+      2) 쿼리스트링 (query string)
+      URL 안에 추가되는 작은 용량의 데이터
+      요청을 구체화할때 사용된다
+      키, 값(value) 쌍
+
+      - 사용방법
+      경로?key=value
+
+      - 예
+      https://google.com/news/sports?page=1
+
+      3) location hash
+      페이지내에서 특정한 지점을 찾을 때 사용된다
+
+      - 사용 방법
+      URL#hash
+
+      - 예
+      https://google.com/news/sports?page=1#lastArticle
+
+
+      # 라우터
+      적절한 리소스와 요청 URL을 연결시킨다
+    */
+
+    // 컨텐츠
+    var main = document.getElementById("main");
+
+    // DOMContentLoaded - 문서가 로드되었을 때
+    document.addEventListener("DOMContentLoaded", hashRouter);
+
+    // hashchange - location hash가 바뀌는 이벤트
+    window.addEventListener("hashchange", hashRouter);
+
+    // 해쉬기반 라우터
+    // 일반적인 해쉬의 사용법과는 다르게 사용한다
+    function hashRouter() {
+
+      // 요청 URL
+      var url = location.hash.substring(1);
+
+      var urlData = parseUrl(url);
+
+      console.log(urlData);
+
+      // 라우트의 그룹
+      var routes = [
+        // 라우트
+        { path: "/", element: Home },
+        { path: "/posts", element: Posts },
+        { path: "/post", element: Post },
+        { path: "/contact", element: Contact },
+      ]
+
+      // 라우팅
+      // 요청 URL과 일치하는 path를 가진 라우트의 엘리먼트를 호출한다
+
+      for (var i=0; i<routes.length; i++) {
+        var route = routes[i];
+
+        if (route.path == urlData.path) {
+          // 컴포넌트에 쿼리 전달
+          main.innerHTML = route.element(urlData.query);
+        }
+      }
+    }
+
+    // URL 분석 처리
+    function parseUrl(url) {
+      // url에 쿼리스트링이 있는지 체크
+      var hasQuery = url.indexOf("?") > -1;
+      // 경로(path)와 쿼리스트링을 각각 저장할 변수
+      var path, query;
+
+      if (hasQuery) { // 쿼리가 있는 경우
+        path = url.substring(url.indexOf("?"), -1);
+        // 끝인덱스에 -1이 있는 경우: 시작인덱스부터 앞의 문자열을 추출한다
+        // substring(시작인덱스, 끝인덱스) - 문자열에서 특정 문자열을 추출한다
+        query = url.substring(url.indexOf("?"));
+      } else { // 쿼리가 없는 경우
+        path = url;
+        query = null;
+      }
+
+      // 분석 결과 반환
+      return { url, path, query }; 
+      // { url: url } -> { url }
+    }
+
+    // 컴포넌트 (각각의 페이지 렌더링 처리)
+    function Home() {
+      return (`
+        <h3>Home</h3>
+        <p>Welcome to my blog.</p>
+      `);
+    }
+
+    function Posts() {
+      return (`
+        <h3>Posts</h3>
+        <ul>
+          <li>
+            <a href="#/post?postId=p1">Second post</a>
+          </li>  
+          <li>
+            <a href="#/post?postId=p0">First post</a>
+          </li>  
+        </ul>
+      `)
+    }
+
+    function Post(query) {
+      return (`
+        <h3>Post</h3>
+        <p>${query}</p>
+      `)
+    }
+
+    function Contact() {
+      return (`
+        <h3>Contact</h3>
+        <p>john@example.com</p>
+      `)
+    }
+  </script>
 </body>
 </html>
