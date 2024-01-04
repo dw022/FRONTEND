@@ -73,6 +73,15 @@
         <div id="col-1"></div>
         <div id="col-2"></div>
     </div>
+    <!-- 
+        mt-8: 상단 여백(margin-top)을 8로 설정
+        작은 화면에서는 1열, 중간 크기 이상부터는 2열
+        gap-4: 그리드 내부의 각 요소 사이의 간격을 4로 설정
+        opacity-80: 이미지의 투명도를 80%로 설정
+        hover하면 투명도 100%
+        src는 이미지 경로, alt는 이미지에 대한 대체 텍스트
+        onclick="openModal(this)": 이미지를 클릭할 때 모달을 여는 openModal() 함수 호출
+    -->
 
     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div id="col-1">
@@ -92,6 +101,7 @@
             onclick="openModal(this)"
             >
         </div>
+
         <div id="col-2">
             <img class="cursor-pointer opacity-80 hover:opacity-100"
             src="/images/atrium.png"
@@ -115,6 +125,194 @@
     <div id="modal-overlay" class="fixed inset-0 bg-black/80 z-40 hidden">
         <img id="modal" class="block mt-20 mx-auto px-4" src="" alt="">
     </div>
+
+    <!-- SERVICES -->
+    <div id="services" class="mt-24">
+        <h2 class="text-gray-400 text-5xl my-8 font-semibold">Services</h2>
+        <div class="w-16 border-t-8 border-t-gray-400 rounded"></div>
+    </div>
+
+    <p class="my-4">
+        We are
+    </p>
+
+    <p class="my-4">
+        Some text about
+    </p>
+
+    <li>
+        <div>
+    <h3 class="text-2xl my-4 font-semibold tracking-wide">John Doe</h3>
+    <p class="my-4 text-gray-400">CEO & Founder</p>
+    <p class="my-4">
+        Phasellus eget enim..
+    </p>
+    <button class="w-full p-2 text-white bg-gray-400 hover:bg-gray-500">Contact</button>
+</div>
+</li>
+
+<ul class="grid grid-cols-1"
+<li class="bg-gray-100">
+    <img class="w-full" src="https://www.w3schools.com/w3images/team2.jpg" alt="John Doe">
+    <div class="px-4 pb-4">
+        <h3 class="text-2xl my-4 font-semibold tracking-wide">John Doe</h3>
+        <p class="my-4 text-gray-400">CEO & Founder</p>
+        <p class="my-4">
+        Phasellus eget enim..
+        </p>
+        <button class="w-full p-2 text-white bg-gray-400 hover:bg-gray-500">Contact</button>
+    </div>
+</li>
+
+<!-- PACKAGES -->
+<div id="packages" class="mt-24">
+    <h2 class="text-gray-400 text-5xl my-8 font-semibold">Packages</h2>
+    <div class="w-16 border-t-8 border-t-gray-400 rounded"></div>
+</div>
+
+<p class="my-4">
+    Some text our prices. Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero placeat odit aut dolores unde accusantium, autem ipsam assumenda exercitationem harum accusamus laudantium similique deserunt, amet porro nostrum possimus natus sit.
+</p>
+
+<!-- 
+    bg-gray-100:배경색을 회색으로 설정
+    p-8: 여백(padding)을 8로 설정
+ -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <ul class="bg-gray-100">
+        <li class="bg-gray-600 p-8">
+            <h3 class="text-2xl text-white text-center">Basic</h3>
+        </li>
+        <li class="text-center p-4 border-b">Floorplanning</li>
+        <li class="text-center p-4 border-b">10 hours support</li>
+        <li class="text-center p-4 border-b">Photography</li>
+        <li class="text-center p-4 border-b">20% furniture discount</li>
+        <li class="text-center p-4 border-b">Good deals</li>
+        <li class="p-4 border-b">
+            <span class="block text-center text-3xl my-4">$ 199</span>
+            <span class="block text-center text-gray-400">per room</span>
+        </li>
+        <li class="p-4 text-center">
+            <button class="px-4 py-2 text-white bg-gray-600 hover:bg-gray-700">Sign Up</button>
+        </li>
+    </ul>
+
+    <ul class="bg-gray-100">
+        <li class="bg-gray-600 p-8">
+            <h3 class="text-2xl text-white text-center">Pro</h3>
+        </li>
+        <li class="text-center p-4 border-b">Floorplanning</li>
+        <li class="text-center p-4 border-b">10 hours support</li>
+        <li class="text-center p-4 border-b">Photography</li>
+        <li class="text-center p-4 border-b">50% furniture discount</li>
+        <li class="text-center p-4 border-b">GREAT deals</li>
+        <li class="p-4 border-b">
+            <span class="block text-center text-3xl my-4">$ 249</span>
+            <span class="block text-center text-gray-400">per room</span>
+        </li>
+        <li class="p-4 text-center">
+            <button class="px-4 py-2 text-white bg-gray-600 hover:bg-gray-700">Sign Up</button>
+        </li>
+    </ul>
+
+    <!-- 
+        my-8: 상하 여백(margin)을 8로 설정
+        border-t-gray-400: 위쪽 테두리의 색상을 회색(그레이)으로 설정
+        rounded: 모서리를 둥글게
+        border-t-8: 위쪽 테두리의 두께를 8로 설정
+        w-16: 가로 너비를 16으로 설정
+     -->
+
+    <!-- CONTACT -->
+    <div id="contact class=mt-24">
+        <h2 class="text-gray-400 text-5xl my-8 font-semibold">Contact.</h2>
+        <div class="w-16 border-t-8 border-t-gray-400 rounded"></div>
+    </div>
+
+    <p class="my-4">
+        Do you want us to style your home? Fill out the form and fill me in with the details :)
+        We love meeting new people!
+    </p>
+</div>
+
+<ul class="my-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <li class="flex felx-col justify-center items-center p-4 border-2">
+        <svg class="w-8 fill-gray-400"
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 512 512">
+        <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+    </svg>
+    <p class="mt-4 text-center">
+        032 123 4567
+        010 1234 5678
+    </p>
+    </li>
+
+    <li class="flex flex-col justify-center items-center p-4 border-2">
+        <svg class="w-8 fill-gray-400" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 384 512">
+            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+        </svg>
+        <p class="mt-4 text-center">
+            Gyeongwon-Daero <br>
+            Bupyeong-gu <br>
+            Incheon, KR
+        </p>
+    </li>
+
+    <li class="flex flex-col justify-center items-center p-4 border-2">
+        <svg class="w-8 fill-gray-400"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M255.4 48.2c.2-.1 .4-.2 .6-.2s.4 .1 .6 .2L460.6 194c2.1 1.5 3.4 3.9 3.4 6.5v13.6L291.5 355.7c-20.7 17-50.4 17-71.1 0L48 214.1V200.5c0-2.6 1.2-5 3.4-6.5L255.4 48.2zM48 276.2L190 392.8c38.4 31.5 93.7 31.5 132 0L464 276.2V456c0 4.4-3.6 8-8 8H56c-4.4 0-8-3.6-8-8V276.2zM256 0c-10.2 0-20.2 3.2-28.5 9.1L23.5 154.9C8.7 165.4 0 182.4 0 200.5V456c0 30.9 25.1 56 56 56H456c30.9 0 56-25.1 56-56V200.5c0-18.1-8.7-35.1-23.4-45.6L284.5 9.1C276.2 3.2 266.2 0 256 0z"/>
+        </svg>
+        <p class="mt-4 text-center">
+            interior_1@company.com <br>
+            interior_2@company2.com
+        </p>
+    </li>
+</ul>
+
+<!-- FOOTER -->
+<footer class="mt-24 p-12 bg-gray-200">
+    <p class="text-right">
+        Powered by <a href="#" class="underline">Company</a>
+    </p>
+</footer>
+
+<script>
+    // 사이드바
+    var openBtn = document.getElementById("open-btn");
+    var navOverlay = document.getElementById("nav-overlay");
+
+    // 메뉴 버튼 클릭: 메뉴 사이드바가 나타난다.
+    openBtn.addEventListener("click", function() {
+        // replace(클래스A, 클래스B): 클래스A를 클래스B로 대체한다.
+        sideBar.classList.replace("-left-80", "left-0");
+        navOverlay.classList.remove("hidden");
+    })
+
+    // 오버레이 클릭: 메뉴 사이드바 이외 다른 곳을 클릭하면 사이드바가 사라진다.
+    navOverlay.addEventListener("click", function() {
+        // replace(클래스A, 클래스B): 클래스A를 클래스B로 대체한다.
+        sideBar.classList.replace("left-0", "-left-80");
+        this.classList.add("hidden");
+    })
+
+    // 모달
+    var modalOverlay = document.getElementById("modal-overlay");
+
+    // 썸네일을 클릭했을 때
+    function openModal(img) {
+        modal.src=img.src;
+        modal.alt=img.alt;
+        modalOverlay.classList.remove("hidden");
+    }
+    
+    // 모달의 오버레이를 클릭했을 때
+    modalOverlay.addEventListener("click", function() {
+        this.classList.add("hidden");
+    })
+</script>
+
 </main>
     
 </body>
