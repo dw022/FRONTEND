@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Tailwindcss cdn -->
+     <script src="https://cdn.tailwindcss.com"></script>
+     <!-- Font library -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+     <!-- Font adjust -->
+     <style>
+         body {
+             font-family: "Poppins", sans-serif;
+         }
+     </style>
+</head>
+<body>
+    <style>
+        .header {
+            width:100%;
+            height:20rem;
+            margin-top:20px;
+            position: relative;
+            border:1px solid;
+
+        }
+
+        .header-content {
+            display: block;
+            position: absolute;
+        }
+
+        /* 로고 */
+        .logo {
+            position: absolute;
+            top:49%;
+            left:24rem;
+            /* border: 1px solid black; */
+        }
+
+        .logo img {
+            width: 20rem; /* 원하는 너비로 조절 */
+            height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
+        }
+
+        /* 메뉴바 */
+        .navbar {
+            position: absolute;
+            display: block;  
+            right:10px;
+            top: 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0;
+            display: flex; /* 메뉴 리스트에 Flexbox 적용 */
+        }
+
+        .navbar li {
+            margin-left: 20px; /* 메뉴 간격 조절 */
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black; /* 링크 색상 지정 */
+        }
+
+        /* 검색창 */
+        .searchBOX {
+            position: absolute;
+            top: 50%;
+            left: 49.5rem;
+        }
+
+        /* 돋보기 아이콘 모양 */
+        #searchForm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="search"] {
+            width: 20rem;
+            padding: 10px;
+            border: 3px solid rgb(203, 255, 161);
+            border-radius: 40px;
+            outline: none;
+        }
+
+        i.fa-magnifying-glass {
+            margin-right: 5px;
+        }
+
+        .srh {
+            height: 16px; /* SVG 이미지의 높이 */
+            width: 16px; /* SVG 이미지의 너비 */
+            fill: #888; /* SVG 색상 */
+            position: absolute;
+            right: 10px; /* SVG의 오른쪽 여백 */
+            margin-right:5px;
+        }
+
+        .srh:hover {
+            cursor: pointer;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+        }
+
+        /* 오토앨범 */
+        .autoalbum {
+            position: absolute;
+            width: 800px;
+            height: 500px;
+            left:35rem;
+            top:1rem;
+            border: 2px solid gray;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        /* 오토앨범-메인 */
+        #main {
+            width: inherit;
+            height: inherit;
+            object-fit: fill;
+            border-radius: 30px;
+        }
+
+        /* 오토앨범-썸네일 */
+        .thumbnails {
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        /* 아웃라인 */
+        .active { 
+        outline: 2px solid gray;
+        border-radius: 10px;
+        z-index:1;
+        }
+        
+        .buttons {
+            position: absolute;
+            display: flex;
+            top:10.5rem;
+            right:35rem;
+            gap:10px;
+            font-size:22px;
+        }
+
+    </style>
+
+    <div class="header">
+
+        <!-- 메뉴바 -->
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="#" id="join">회원가입</a>
+                </li>
+                
+                <li>
+                    <a href="#" id="login">로그인</a>
+                </li>
+                <li>
+                    <a href="#" id="buy">주문/구매</a>
+                </li>
+                <li>
+                    <a href="#" id="cart">장바구니</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 로고 -->
+        <div class="logo">
+        <a href="./index.html">
+            <img src="/images/올리브영로고.png" alt="LOGO">
+        </a>
+        </div>
+
+        <!-- 검색창 -->
+        <div class="searchBOX">
+            <form id="searchForm" action="/search" method="GET">
+                <svg class="srh" xmlns="http://www.w3.org/2000/svg" height="16" width="16" 
+                viewBox="0 0 512 512"> 
+                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                </svg>
+                <input onkeyup="enterkey()" type="search" name="searchValue" placeholder="search"/>
+            </form>
+        </div>
+
+        <div class="buttons">
+        <button class="about">About</button> |<button class="post">Posts</button>
+    </div>
+    </div>
+
+    <!-- Commodities -->
+
+    <div class="container">
+
+        <div class="autoalbum">
+            <img id="main" src="/images/commodity_1.png" alt="">
+        <div class="thumbnails">
+            <img class="photo active" src="/images/commodity_1.png" alt="">
+            <img class="photo" src="/images/commodity_2.png" alt="">
+            <img class="photo" src="/images/commodity_3.png" alt="">
+            <img class="photo" src="/images/commodity_4.png" alt="">
+            <img class="photo" src="/images/commodity_5.png" alt="">
+            <img class="photo" src="/images/commodity_6.png" alt="">
+        </div>
+
+    <div id= "como" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div id="col-1">
+            <img class="cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_1.png"
+            alt="toner"
+            onclick="openModal(this)"
+            >
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_2.png"
+            alt="lotion"
+            onclick="openModal(this)"
+            >
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_3.png"
+            alt="tint"
+            onclick="openModal(this)"
+            >
+        </div>
+
+        <div id="col-2">
+            <img class="cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_4.png"
+            alt="atrium"
+            onclick="openModal(this)"
+            >
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_5.png"
+            alt="bedroom"
+            onclick="openModal(this)"
+            >
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_6.png"
+            alt="livingroom2"
+            onclick="openModal(this)"
+            >
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // setInterval(callback, ms)
+    // ms마다 callback을 실행한다. 1000ms = 1s
+    var photos = document.getElementsByClassName("photo");
+    var main = document.getElementById("main");
+    var index=0;
+
+    setInterval(interval, 3000);
+
+    function interval() {
+        index ++;
+
+        if(index >2) index=0;
+
+        console.log(index);
+
+        // 메인이미지 업데이트
+        main.src = photos[index].src;
+
+        for (var i=0; i<photos.length; i++) {
+            photos[i].classList.remove("active");
+        }
+
+        photos[index].classList.add("active");
+    };
+
+    </script>
+
+</body>
+</html>
