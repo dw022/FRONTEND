@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Blog</title>
      <!-- Tailwindcss cdn -->
      <script src="https://cdn.tailwindcss.com"></script>
      <!-- Font library -->
@@ -34,9 +34,9 @@
         /* 로고 */
         .logo {
             position: absolute;
-            top:49%;
+            top:60%;
             left:24rem;
-            /* border: 1px solid black; */
+            
         }
 
         .logo img {
@@ -71,7 +71,7 @@
         /* 검색창 */
         .searchBOX {
             position: absolute;
-            top: 50%;
+            top: 60%;
             left: 49.5rem;
         }
 
@@ -109,7 +109,13 @@
 
         .container {
             position: relative;
-            display: flex;
+            display: block;
+        }
+
+        #como {
+            position: absolute;
+            margin-top: 40rem;
+            left:40rem;
         }
 
         /* 오토앨범 */
@@ -118,10 +124,15 @@
             width: 800px;
             height: 500px;
             left:35rem;
-            top:1rem;
+            top:3rem;
             border: 2px solid gray;
             border-radius: 30px;
             overflow: hidden;
+        }
+
+        #WELCOMETEXT {
+            margin-left:48rem;
+            margin-top: 4rem;
         }
 
         /* 오토앨범-메인 */
@@ -154,18 +165,89 @@
         z-index:1;
         }
         
-        .buttons {
+        .nexttosearch {
             position: absolute;
             display: flex;
-            top:10.5rem;
-            right:35rem;
+            top:12.5rem;
+            right:25rem;
             gap:10px;
             font-size:22px;
         }
 
+        #btn1 {
+            width: 14rem;
+            margin-left:-10.5rem;
+        }
+
+        #btn2 {
+            width: 14rem;
+            margin-left: 8.5rem;
+        }
+
+        #btn3 {
+            width: 14rem;
+            margin-left:27rem;
+        }
+
+        #btn4 {
+            width: 14rem;
+            margin-left:-8rem;
+        }
+
+        #btn5 {
+            width: 14rem;
+            margin-left:9.5rem;
+        }
+
+        #btn6 {
+            width: 14rem;
+            margin-left:26rem;
+        }
+        #btn7 {
+            width: 14rem;
+            margin-left:-8rem;
+        }
+        #btn8 {
+            width: 14rem;
+            margin-left:9rem;
+        }
+        #btn9 {
+            width: 14rem;
+            margin-left:25.5rem;
+        }
+
+        #buying {
+            border: 3px solid rgba(84, 155, 84, 0.363);
+            border-radius: 55px;
+            background-color: #cacaca;
+        }
+
+        #buying:hover {
+            background-color: #888;
+        }
+
+        #carting {
+            border: 3px solid #cacaca;
+            border-radius: 55px;
+            background-color: rgba(84, 155, 84, 0.363);
+        }
+
+        #carting:hover {
+            background-color: #008512;
+        }
     </style>
 
     <div class="header">
+
+        <!-- <div class="h-[500px] bg-[url('https://www.w3schools.com/w3images/coffeehouse.jpg')] bg-cover bg-center grayscale-[50%]">
+            <div class="h-[450px] flex flex-col justify-center">
+              <h1 class="text-8xl text-center text-white">
+                DaWoon's <br>
+                <span class="inline-block mt-8">
+                  OLIVE YOUNG
+                </span>
+              </h1>
+            </div> -->
 
         <!-- 메뉴바 -->
         <div class="navbar">
@@ -186,6 +268,8 @@
             </ul>
         </div>
 
+        <h1 class="text-7xl text-center mt-20 text-gray-300">DAWOON'S YOUNG</h1>
+
         <!-- 로고 -->
         <div class="logo">
         <a href="./index.html">
@@ -204,8 +288,8 @@
             </form>
         </div>
 
-        <div class="buttons">
-        <button class="about">About</button> |<button class="post">Posts</button>
+        <div class="nexttosearch">
+        <button class="about">About</button> |<button class="post">Posts</button> |<button class="post">Contact</button>
     </div>
     </div>
 
@@ -214,62 +298,142 @@
     <div class="container">
 
         <div class="autoalbum">
-            <img id="main" src="/images/commodity_1.png" alt="">
-        <div class="thumbnails">
-            <img class="photo active" src="/images/commodity_1.png" alt="">
-            <img class="photo" src="/images/commodity_2.png" alt="">
-            <img class="photo" src="/images/commodity_3.png" alt="">
-            <img class="photo" src="/images/commodity_4.png" alt="">
-            <img class="photo" src="/images/commodity_5.png" alt="">
-            <img class="photo" src="/images/commodity_6.png" alt="">
+                <img id="main" src="/images/commodity_1.png" alt="">
+            <div class="thumbnails">
+                <img class="photo active" src="/images/commodity_1.png" alt="">
+                <img class="photo" src="/images/commodity_2.png" alt="">
+                <img class="photo" src="/images/commodity_3.png" alt="">
+                <img class="photo" src="/images/commodity_4.png" alt="">
+                <img class="photo" src="/images/commodity_5.png" alt="">
+                <img class="photo" src="/images/commodity_6.png" alt="">
+            </div>
         </div>
 
-    <div id= "como" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div id="col-1">
+        <h1 id="WELCOMETEXT" class="text-4xl">WELCOME TO MY BLOG!</h1>
+
+    <div id= "como" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div id="col-1" class="md:flex md:flex-wrap">
+            <div class="md:w-1/3 md:p-2 box">
             <img class="cursor-pointer opacity-80 hover:opacity-100"
             src="/images/commodity_1.png"
             alt="toner"
             onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:-14rem;"
             >
+            <div id="btn1" class="flex mt-4">
+                <button id="buying" class="text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+        <div class="md:w-1/3 md:p-2 box">
             <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
             src="/images/commodity_2.png"
             alt="lotion"
             onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:5rem; margin-top:0;"
             >
+            <div id="btn2" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
             <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
             src="/images/commodity_3.png"
             alt="tint"
             onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 27rem; "
             >
+            <div id="btn3" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
         </div>
-
-        <div id="col-2">
-            <img class="cursor-pointer opacity-80 hover:opacity-100"
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
             src="/images/commodity_4.png"
-            alt="atrium"
+            alt="tint"
             onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:-10rem;"
             >
+            <div id="btn4" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
             <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
             src="/images/commodity_5.png"
-            alt="bedroom"
+            alt="tint"
             onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:6rem;"
             >
+            <div id="btn5" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
             <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
             src="/images/commodity_6.png"
-            alt="livingroom2"
+            alt="tint"
             onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 25rem;"
             >
+            <div id="btn6" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
         </div>
+        <div class="md:w-1/3 md:p-2 box">
+        <img class="cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_7.png"
+            alt="shadow"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left:-10rem;"
+            >
+            <div id="btn7" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_8.png"
+            alt="contour"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 8rem;"
+            >
+            <div id="btn8" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_9.png"
+            alt="eyeline"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 25rem;"
+            >
+            <div id="btn9" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- 모달 이미지 -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/80 z-40 hidden">
+        <img id="modal" class="block mt-20 mx-auto px-4" src="" alt="">
     </div>
-<!-- 1. 상품들 내역이 안보이고, 
-    2. 위에 메뉴바는 창 크기에 따라 위치가 달라지는데
-    옆으로 스크롤바를 돌리면 위치가 그 자리에 고정돼있음
-    3. 상품 내역들 나열을 이쁘게 하고 싶음  -->
+        
 </div>
 
 <script>
     // setInterval(callback, ms)
     // ms마다 callback을 실행한다. 1000ms = 1s
+    // 오토앨범
     var photos = document.getElementsByClassName("photo");
     var main = document.getElementById("main");
     var index=0;
@@ -292,6 +456,22 @@
 
         photos[index].classList.add("active");
     };
+
+    // 모달
+
+    var modalOverlay = document.getElementById("modal-overlay");
+
+    // 썸네일을 클릭했을 때
+    function openModal(img) {
+        modal.src=img.src;
+        modal.alt=img.alt;
+        modalOverlay.classList.remove("hidden");
+    }
+    
+    // 모달의 오버레이를 클릭했을 때
+    modalOverlay.addEventListener("click", function() {
+        this.classList.add("hidden");
+    })
 
     </script>
 
