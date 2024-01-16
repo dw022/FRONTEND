@@ -11,27 +11,334 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="px-4">
-  <h1 class="text-4xl font-semibold my-8">My Blog</h1>
-  
-  <ul class="pl-4 my-4 list-disc">
-    <li>
-      <a href="./index.html" class="underline">Home</a>
-    </li>
-    <li>
-      <a href="./about.html" class="underline">About</a>
-    </li>
-    <li>Posts</li>
-  </ul>
 
-  <h1 class="text-2xl font-semibold my-4">About Blog</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-    Unde voluptatum explicabo assumenda rem commodi quisquam odit consequatur, 
-    vitae nobis animi ipsam alias adipisci aliquam, porro iste tempore. 
-    Obcaecati, laborum consequatur?
-  </p>
+  <style>
+    .header {
+        width:100%;
+        height:20rem;
+        margin-top:20px;
+        position: relative;
+        border:1px solid;
+        font-family: "Poppins", sans-serif;
+         
+    }
+
+    .header-content {
+        display: block;
+        position: absolute;
+    }
+
+    /* 로고 */
+    .logo {
+        position: absolute;
+        top:60%;
+        left:24rem; 
+    }
+
+    .logo img {
+        width: 20rem; /* 원하는 너비로 조절 */
+        height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
+    }
+
+    /* 메뉴바 */
+    .navbar {
+        position: absolute;
+        display: block;  
+        right:10px;
+        top: 0;
+    }
+
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 0;
+        display: flex; /* 메뉴 리스트에 Flexbox 적용 */
+    }
+
+    .navbar li {
+        margin-left: 20px; /* 메뉴 간격 조절 */
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: black; /* 링크 색상 지정 */
+    }
+
+    /* 검색창 */
+    .searchBOX {
+        position: absolute;
+        top: 60%;
+        left: 49.5rem;
+    }
+
+    /* 돋보기 아이콘 모양 */
+    #searchForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="search"] {
+        width: 20rem;
+        padding: 10px;
+        border: 3px solid rgb(203, 255, 161);
+        border-radius: 40px;
+        outline: none;
+    }
+
+    i.fa-magnifying-glass {
+        margin-right: 5px;
+    }
+
+    .srh {
+        height: 16px; /* SVG 이미지의 높이 */
+        width: 16px; /* SVG 이미지의 너비 */
+        fill: #888; /* SVG 색상 */
+        position: absolute;
+        right: 10px; /* SVG의 오른쪽 여백 */
+        margin-right:5px;
+    }
+
+    .srh:hover {
+        cursor: pointer;
+    }
+
+    .nexttosearch {
+            position: absolute;
+            display: flex;
+            top:12.5rem;
+            right:25rem;
+            gap:10px;
+            font-size:22px;
+        }
+
+        /* Profile Card */
+        .card {
+            /* border:1px solid; */
+            width:30rem;
+            height:auto;
+            box-shadow: 0 0 10px gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .cardcontent {
+            margin-top:30px;
+            margin-left:20px;
+            padding: 0 1rem 1rem;
+            line-height: 2;
+            font-size: large;
+        }
+        .subtitle {
+            color:gray;
+        }
+        #showmorebtn {   
+            padding: 0.5rem;  
+            font-size:1rem;
+            font-weight: 800;
+            margin-top:30px;
+            margin-left: 10px;
+            width:100%;
+            background-color: #4db44d96; /* 원하는 배경색으로 변경하세요 */
+            color: #fff; /* 텍스트 색상을 원하는 대로 변경하세요 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #showmorebtn:hover {
+          background-color: #2b5f2b96;
+        }
+
+        /* Show more Overlay */
+        #side-bar {
+            /* border: 1px dashed; */
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: cornsilk;
+            transition: top 0.2s;
+            z-index: 1;
+        }
+
+        #overlay {
+            /* border:1px dashed; */
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            position: fixed;
+            background-color: cornsilk;
+        }
+
+
+        #side-bar.hidden {
+            top:-100%;
+        }
+
+        #overlay.hidden {
+            display: none;
+        }
+
+        #close.hidden {
+            display: none;
+        }
+
+        #close {
+            /* border:1px dashed; */
+            position:fixed;
+            right:0;
+            top:0;
+            display: inline-block;
+            /* display: inline; */
+            width:50px;
+            height:50px;
+            text-align: center;
+            cursor:pointer;
+        }
+
+        #close:after {
+            content: "\00d7"; font-size:40pt; line-height: 40px;
+        }
+
+        .barcontainer {
+            margin-left:33rem;
+            margin-top:-7rem;
+            width:200px;
+            height: 5px;
+            /* border: 1px solid; */
+            background-color: #ddd;
+            border-radius: 99px;
+        }
+        #progressbar {
+           width:200px;
+            height: 100%;
+            background-color: purple;
+            animation-name: progress;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease;
+            border-radius: 99px;
+        }
+
+        /* 애니메이션 정의
+        @keyframes progress {
+            from {width:0;
+            } to {
+                width:200px;
+            }
+        } */
+    </style>
   
+  <div class="header">
+
+    <!-- <div class="h-[500px] bg-[url('https://www.w3schools.com/w3images/coffeehouse.jpg')] bg-cover bg-center grayscale-[50%]">
+        <div class="h-[450px] flex flex-col justify-center">
+          <h1 class="text-8xl text-center text-white">
+            DaWoon's <br>
+            <span class="inline-block mt-8">
+              OLIVE YOUNG
+            </span>
+          </h1>
+        </div> -->
+
+    <!-- 메뉴바 -->
+    <div class="navbar">
+        <ul>
+            <li>
+                <a href="#" id="join">회원가입</a>
+            </li>
+            
+            <li>
+                <a href="#" id="login">로그인</a>
+            </li>
+            <li>
+                <a href="#" id="buy">주문/구매</a>
+            </li>
+            <li>
+                <a href="#" id="cart">장바구니</a>
+            </li>
+        </ul>
+    </div>
+
+    <h1 class="text-7xl text-center mt-20 text-gray-300">DAWOON'S YOUNG</h1>
+
+    <!-- 로고 -->
+    <div class="logo">
+    <a href="./index.html">
+        <img src="/images/올리브영로고.png" alt="LOGO">
+    </a>
+    </div>
+
+    <!-- 검색창 -->
+    <div class="searchBOX">
+        <form id="searchForm" action="/search" method="GET">
+            <svg class="srh" xmlns="http://www.w3.org/2000/svg" height="16" width="16" 
+            viewBox="0 0 512 512"> 
+            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+            </svg>
+            <input onkeyup="enterkey()" type="search" name="searchValue" placeholder="search"/>
+        </form>
+    </div>
+
+    <div class="nexttosearch">
+    <a href="./about.html" class="about">About</button> |
+    <button class="post">Posts</button> |
+    <button class="post">Contact</button>
+</div>
+</div>
+
+<h1 class="text-4xl font-semibold my-8">My Blog</h1>
+
+  <h1 class="text-2xl font-semibold my-4">About Me!</h1>
+  <div class="card">
+    <img src="img/Timon.webp" style="border-radius: 200px; width: 10rem; height: 10rem;">
+    <div class="cardcontent">
+    <h2 style="font-weight: bold;">Lee Dawoon</h2>
+    <p class="subtitle">University 4th year Student</p>
+    <p>You Can Do It, Dawoon!</p>
+    <button onclick="startProgressBar()" id="showmorebtn">Show more?</button>
+  </div>
+</div>
+
+<div class="barcontainer" style id="animation-style">
+    <div id="progressbar"></div>
+</div>
+
+<nav id="showmorebox" class="hidden">
+  <div id="showmoreinfo1" class="hidden"></div>
+  <p>My name is Lee Da woon, and I was born in 2002.</p>
+</nav>
+
+<div id="showmoreoverlay" class="hidden"></div>
+
   <!-- script -->
-  <script src="./js/about.js"></script>
+  <script>
+        function startProgressBar() {
+            // Create a style element
+            var styleElement = document.getElementById("animation-style");
+            
+            // Add @keyframes rule for the progress animation
+            styleElement.innerHTML = `
+                @keyframes progress {
+                    from {
+                        width: 0;
+                    }
+                    to {
+                        width: 200px;
+                    }
+                }`;
+
+            // Get the progress bar element
+            var progressBar = document.getElementById("progressbar");
+
+            // Add a class to start the animation
+            progressBar.classList.add("start-animation");
+        }
+        
+  </script>
 </body>
 </html>

@@ -1,41 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog</title>
-  <!-- tailwindcss CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+     <!-- Tailwindcss cdn -->
+     <script src="https://cdn.tailwindcss.com"></script>
+     <!-- Font library -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+     <!-- Font adjust -->
+     <style>
+         body {
+             font-family: "Poppins", sans-serif;
+         }
+     </style>
 </head>
-<body class="px-4">
-  <h1 class="text-4xl font-semibold my-8">My Blog</h1>
-  
-  <ul class="pl-4 my-4 list-disc">
-    <li>
-      <a href="./index.html" class="underline">Home</a>
-    </li>
-    <li>
-      <a href="./about.html" class="underline">About</a>
-    </li>
-    <li>Posts</li>
-  </ul>
+<body>
+    <style>
+        .header {
+            width:100%;
+            height:20rem;
+            margin-top:20px;
+            position: relative;
+            border:1px solid;
 
-  <!-- images -->
-  <h1 class="text-2xl font-semibold my-4">Hi, there!</h1>
+        }
 
-  <img 
-    class="w-20 h-20 object-cover rounded-full my-4"
-    src="./img/Timon.webp" 
-    alt="Timon"
-  >
-  <p>
-    Welcome to my blog.
-  </p>
+        .header-content {
+            display: block;
+            position: absolute;
+        }
 
-  <!-- script -->
-  <script src="./js/index.js"></script>
+        /* 로고 */
+        .logo {
+            position: absolute;
+            top:60%;
+            left:24rem;
+            
+        }
+
+        .logo img {
+            width: 20rem; /* 원하는 너비로 조절 */
+            height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
+        }
+
+        /* 메뉴바 */
+        .navbar {
+            position: absolute;
+            display: block;  
+            right:10px;
+            top: 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0;
+            display: flex; /* 메뉴 리스트에 Flexbox 적용 */
+        }
+
+        .navbar li {
+            margin-left: 20px; /* 메뉴 간격 조절 */
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black; /* 링크 색상 지정 */
+        }
+
+        /* 검색창 */
+        .searchBOX {
+            position: absolute;
+            top: 60%;
+            left: 49.5rem;
+        }
+
+        /* 돋보기 아이콘 모양 */
+        #searchForm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="search"] {
+            width: 20rem;
+            padding: 10px;
+            border: 3px solid rgb(203, 255, 161);
+            border-radius: 40px;
+            outline: none;
+        }
+
+        i.fa-magnifying-glass {
+            margin-right: 5px;
+        }
+
+        .srh {
+            height: 16px; /* SVG 이미지의 높이 */
+            width: 16px; /* SVG 이미지의 너비 */
+            fill: #888; /* SVG 색상 */
+            position: absolute;
+            right: 10px; /* SVG의 오른쪽 여백 */
+            margin-right:5px;
+        }
+
+        .srh:hover {
+            cursor: pointer;
+        }
+
+        .container {
+            position: relative;
+            display: block;
+        }
+
+        #como {
+            position: absolute;
+            margin-top: 40rem;
+            left:40rem;
+        }
+
+        /* 오토앨범 */
+        .autoalbum {
+            position: absolute;
+            width: 800px;
+            height: 500px;
+            left:35rem;
+            top:3rem;
+            border: 2px solid gray;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        #WELCOMETEXT {
+            margin-left:48rem;
+            margin-top: 4rem;
+        }
+
+        /* 오토앨범-메인 */
+        #main {
+            width: inherit;
+            height: inherit;
+            object-fit: fill;
+            border-radius: 30px;
+        }
+
+        /* 오토앨범-썸네일 */
+        .thumbnails {
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        /* 아웃라인 */
+        .active { 
+        outline: 2px solid gray;
+        border-radius: 10px;
+        z-index:1;
+        }
+        
+        .nexttosearch {
+            position: absolute;
+            display: flex;
+            top:12.5rem;
+            right:25rem;
+            gap:10px;
+            font-size:22px;
+        }
+
+        #btn1 {
+            width: 14rem;
+            margin-left:-10.5rem;
+        }
+
+        #btn2 {
+            width: 14rem;
+            margin-left: 8.5rem;
+        }
+
+        #btn3 {
+            width: 14rem;
+            margin-left:27rem;
+        }
+
+        #btn4 {
+            width: 14rem;
+            margin-left:-8rem;
+        }
+
+        #btn5 {
+            width: 14rem;
+            margin-left:9.5rem;
+        }
+
+        #btn6 {
+            width: 14rem;
+            margin-left:26rem;
+        }
+        #btn7 {
+            width: 14rem;
+            margin-left:-8rem;
+        }
+        #btn8 {
+            width: 14rem;
+            margin-left:9rem;
+        }
+        #btn9 {
+            width: 14rem;
+            margin-left:25.5rem;
+        }
+
+        #buying {
+            border: 3px solid rgba(84, 155, 84, 0.363);
+            border-radius: 55px;
+            background-color: #cacaca;
+        }
+
+        #buying:hover {
+            background-color: #888;
+        }
+
+        #carting {
+            border: 3px solid #cacaca;
+            border-radius: 55px;
+            background-color: rgba(84, 155, 84, 0.363);
+        }
+
+        #carting:hover {
+            background-color: #008512;
+        }
+    </style>
+
+    <div class="header">
+
+        <!-- <div class="h-[500px] bg-[url('https://www.w3schools.com/w3images/coffeehouse.jpg')] bg-cover bg-center grayscale-[50%]">
+            <div class="h-[450px] flex flex-col justify-center">
+              <h1 class="text-8xl text-center text-white">
+                DaWoon's <br>
+                <span class="inline-block mt-8">
+                  OLIVE YOUNG
+                </span>
+              </h1>
+            </div> -->
+
+        <!-- 메뉴바 -->
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="#" id="join">회원가입</a>
+                </li>
+                
+                <li>
+                    <a href="#" id="login">로그인</a>
+                </li>
+                <li>
+                    <a href="#" id="buy">주문/구매</a>
+                </li>
+                <li>
+                    <a href="#" id="cart">장바구니</a>
+                </li>
+            </ul>
+        </div>
+
+        <h1 class="text-7xl text-center mt-20 text-gray-300">DAWOON'S YOUNG</h1>
+
+        <!-- 로고 -->
+        <div class="logo">
+        <a href="./index.html">
+            <img src="/images/올리브영로고.png" alt="LOGO">
+        </a>
+        </div>
+
+        <!-- 검색창 -->
+        <div class="searchBOX">
+            <form id="searchForm" action="/search" method="GET">
+                <svg class="srh" xmlns="http://www.w3.org/2000/svg" height="16" width="16" 
+                viewBox="0 0 512 512"> 
+                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                </svg>
+                <input onkeyup="enterkey()" type="search" name="searchValue" placeholder="search"/>
+            </form>
+        </div>
+
+        <div class="nexttosearch">
+        <a href="./about.html" class="about">About</a> |
+        <a href="#" class="Posts">Posts</a> |
+        <a href="#" class="Contact">Contact</a>
+    </div>
+    </div>
+
+    <!-- Commodities -->
+
+    <div class="container">
+
+        <div class="autoalbum">
+                <img id="main" src="/images/commodity_1.png" alt="">
+            <div class="thumbnails">
+                <img class="photo active" src="/images/commodity_1.png" alt="">
+                <img class="photo" src="/images/commodity_2.png" alt="">
+                <img class="photo" src="/images/commodity_3.png" alt="">
+                <img class="photo" src="/images/commodity_4.png" alt="">
+                <img class="photo" src="/images/commodity_5.png" alt="">
+                <img class="photo" src="/images/commodity_6.png" alt="">
+            </div>
+        </div>
+
+        <h1 id="WELCOMETEXT" class="text-4xl">WELCOME TO MY BLOG!</h1>
+
+    <div id= "como" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div id="col-1" class="md:flex md:flex-wrap">
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_1.png"
+            alt="toner"
+            onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:-14rem;"
+            >
+            <div id="btn1" class="flex mt-4">
+                <button id="buying" class="text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+        <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_2.png"
+            alt="lotion"
+            onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:5rem; margin-top:0;"
+            >
+            <div id="btn2" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_3.png"
+            alt="tint"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 27rem; "
+            >
+            <div id="btn3" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_4.png"
+            alt="tint"
+            onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:-10rem;"
+            >
+            <div id="btn4" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_5.png"
+            alt="tint"
+            onclick="openModal(this)"
+            style="max-width: 400%; height:auto; margin-left:6rem;"
+            >
+            <div id="btn5" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_6.png"
+            alt="tint"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 25rem;"
+            >
+            <div id="btn6" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+        <div class="md:w-1/3 md:p-2 box">
+        <img class="cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_7.png"
+            alt="shadow"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left:-10rem;"
+            >
+            <div id="btn7" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_8.png"
+            alt="contour"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 8rem;"
+            >
+            <div id="btn8" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+            <div class="md:w-1/3 md:p-2 box">
+            <img class="mt-4 cursor-pointer opacity-80 hover:opacity-100"
+            src="/images/commodity_9.png"
+            alt="eyeline"
+            onclick="openModal(this)"
+            style="max-width: 300%; height:auto; margin-left: 25rem;"
+            >
+            <div id="btn9" class="flex mt-4">
+                <button id="buying" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">구매하기</button>
+                <button id="carting" class="bg-green-500 text-white px-4 py-2 rounded">장바구니</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- 모달 이미지 -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/80 z-40 hidden">
+        <img id="modal" class="block mt-20 mx-auto px-4" src="" alt="">
+    </div>
+        
+</div>
+
+<script src="js/index.js">
+
+    // setInterval(callback, ms)
+    // ms마다 callback을 실행한다. 1000ms = 1s
+    // 오토앨범
+    var photos = document.getElementsByClassName("photo");
+    var main = document.getElementById("main");
+    var index=0;
+
+    setInterval(interval, 3000);
+
+    function interval() {
+        index ++;
+
+        if(index >2) index=0;
+
+        console.log(index);
+
+        // 메인이미지 업데이트
+        main.src = photos[index].src;
+
+        for (var i=0; i<photos.length; i++) {
+            photos[i].classList.remove("active");
+        }
+
+        photos[index].classList.add("active");
+    };
+
+    // 모달
+
+    var modalOverlay = document.getElementById("modal-overlay");
+
+    // 썸네일을 클릭했을 때
+    function openModal(img) {
+        modal.src=img.src;
+        modal.alt=img.alt;
+        modalOverlay.classList.remove("hidden");
+    }
+    
+    // 모달의 오버레이를 클릭했을 때
+    modalOverlay.addEventListener("click", function() {
+        this.classList.add("hidden");
+    })
+
+    </script>
+
 </body>
 </html>
