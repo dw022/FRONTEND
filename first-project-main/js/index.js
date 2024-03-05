@@ -12,7 +12,7 @@ console.log("scripts for index page");
     function interval() {
         index ++;
 
-        if(index >2) index=0;
+        if(index >5) index=0;
 
         console.log(index);
 
