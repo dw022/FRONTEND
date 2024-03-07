@@ -16,174 +16,10 @@
       }
   </style>
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
-<body class="px-4">
 
-  <style>
-    .header {
-            width:100%;
-            height:20rem;
-            margin-top:20px;
-            position: relative;
-            border:3px solid rgba(94, 138, 86, 0.363);
-        }
-
-        .header-content {
-            display: block;
-            position: absolute;
-        }
-
-        /* 로고 */
-        .logo {
-            position: absolute;
-            top:60%;
-            left:24rem;
-            
-        }
-
-        .logo img {
-            width: 20rem; /* 원하는 너비로 조절 */
-            height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
-        }
-
-        /* 메뉴바 */
-        .navbar {
-            position: absolute;
-            display: block;  
-            right:10px;
-            top: 0;
-        }
-
-        .navbar ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 0;
-            display: flex; /* 메뉴 리스트에 Flexbox 적용 */
-        }
-
-        .navbar li {
-            margin-left: 20px; /* 메뉴 간격 조절 */
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: black; /* 링크 색상 지정 */
-        }
-
-        /* 검색창 */
-        .searchBOX {
-            position: absolute;
-            top: 60%;
-            left: 49.5rem;
-        }
-
-        /* 돋보기 아이콘 모양 */
-        #searchForm {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input[type="search"] {
-            width: 20rem;
-            padding: 10px;
-            border: 3px solid rgb(203, 255, 161);
-            border-radius: 40px;
-            outline: none;
-        }
-
-        i.fa-magnifying-glass {
-            margin-right: 5px;
-        }
-
-        .srh {
-            height: 16px; /* SVG 이미지의 높이 */
-            width: 16px; /* SVG 이미지의 너비 */
-            fill: #888; /* SVG 색상 */
-            position: absolute;
-            right: 10px; /* SVG의 오른쪽 여백 */
-            margin-right:5px;
-        }
-
-        .srh:hover {
-            cursor: pointer;
-        }
-
-    .nexttosearch {
-            position: absolute;
-            display: flex;
-            top:12.5rem;
-            right:25rem;
-            gap:10px;
-            font-size:22px;
-        }
-
-    /* Profile Card */
-    .profile-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
-    width: 40rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    margin-top:5rem;
-  }
-  
-  .profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-  
-  #showmorebtn {
-    border: 1px solid rgba(139, 69, 19, 0.219);
-    border-radius: 10px;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .progress-container {
-    position: relative;
-    width: 100px;
-    margin-left: 20px;
-  }
-  
-  .progress-bar {
-    width: 0%;
-    height: 5px;
-    background-color: #007bff;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: width 3s linear;
-  }
-
-        /* 애니메이션 정의 */
-        @keyframes progress {
-            from {width:0;
-            } to {
-                width:50rem;
-            }
-        }
-    </style>
-  
   <div class="header">
-
-    <!-- <div class="h-[500px] bg-[url('https://www.w3schools.com/w3images/coffeehouse.jpg')] bg-cover bg-center grayscale-[50%]">
-        <div class="h-[450px] flex flex-col justify-center">
-          <h1 class="text-8xl text-center text-white">
-            DaWoon's <br>
-            <span class="inline-block mt-8">
-              OLIVE YOUNG
-            </span>
-          </h1>
-        </div> -->
 
     <!-- 메뉴바 -->
     <div class="navbar">
@@ -207,65 +43,103 @@
     <h1 class="text-7xl text-center mt-20 text-gray-300">ABOUT ME</h1>
 
     <!-- 로고 -->
-    <div class="logo">
-    <a href="./index.html">
-        <img src="/images/올리브영로고.png" alt="LOGO">
-    </a>
-    </div>
+    <div class="headcontainer">
+        <div class="logo">
+        <a href="./index.html">
+        <img src="img/올리브영로고.png" alt="LOGO">
+        </a>
+        </div>
 
     <!-- 검색창 -->
-    <div class="searchBOX">
-        <form id="searchForm" action="/search" method="GET">
-            <svg class="srh" xmlns="http://www.w3.org/2000/svg" height="16" width="16" 
-            viewBox="0 0 512 512"> 
-            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-            </svg>
-            <input onkeyup="enterkey()" type="search" name="searchValue" placeholder="search"/>
-        </form>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+      </svg>
     </div>
 
     <div class="nexttosearch">
-    <a href="./about.html" class="about">About</button> |
-    <button class="post">Posts</button> |
-    <button class="post">Contact</button>
-</div>
+    <a href="./about.html" class="about">About </a>
+    <a href="#" class="Posts"> Posts </a> 
+    <a href="#" class="Contact"> Contact </a>
+    </div>
 </div>
 
   <div class="profile-card">
     <h2 class="text-2xl font-semibold mb-4">User Profile</h2>
     <img src="img/Timon.webp" alt="Profile Picture" class="profile-img">
-    <p class="m-2">Name: Lee Da woon</p>
-    <p class="mb-4">Birth Year: 2002</p>
+    <p class="m-2"><b>Name</b>: Lee Da woon</p>
+    <p class="mb-4"><b>Birth Year</b>: 2002</p>
     <div id="more-details" class="hidden">
-      <p>Gender: Female</p>
-      <p>Location: Seoul, South Korea</p>
-      <p>Email: example@example.com</p>
+      <p><b>Gender</b>: Female</p>
+      <p><b>Location</b>: Seoul, South Korea</p>
+      <p><b>Email</b>: example@example.com</p>
     </div>
-    <button id="showmorebtn" class="p-2 pl-10 pr-10">Show more?</button>
+    <button id="showmorebtn" class="p-2 pl-10 pr-10">Who am I?</button>
   </div>
 
+  <div class="additional-profiles mt-10">
+    <div class="profile-card additional hidden">
+      <img src="img/frontend1.png" alt="Profile Picture2" class="w-100">
+      <button class="show-more-btn p-2 pl-10 pr-10" onclick="toggleSubCard(this)">▼</button>
+      <div class="sub-card hidden mt-6">
+        <ul>
+          <li>웹 디자인 및 구현</li>
+          <li>HTML/CSS/JavaScript</li>
+          <li>반응형 및 모바일 최적화</li>
+        </ul>
+    </div>
+    </div>
+    <div class="profile-card additional hidden flex justify-center items-center">
+      <img src="img/report1.png" alt="Profile Picture2" class="w-100">
+      <button class="show-more-btn p-2 pl-10 pr-10" onclick="toggleSubCard(this)">▼</button>
+      <div class="sub-card hidden mt-5">
+        <ul>
+          <li>간결함과 명료성</li>
+          <li>편집 및 교정 능력</li>
+          <li>그래픽 및 차트 활용</li>
+        </ul>
+    </div>
+    </div>
+    <div class="profile-card additional hidden flex justify-center items-center">
+      <img src="img/leader1.png" alt="Profile Picture2" class="w-100">
+      <button class="show-more-btn p-2 pl-10 pr-10" onclick="toggleSubCard(this)">▼</button>
+      <div class="sub-card hidden mt-5">
+        <ul>
+          <li>의사소통 능력</li>
+          <li>자기 개발과 팀원 발전</li>
+          <li>책임감과 리더십 행동</li>
+        </ul>
+    </div>
+    </div>
+  </div>
 
   <!-- script -->
   <script>
-    document.getElementById("showmorebtn").addEventListener("click", function() {
-  var detailsDiv = document.getElementById("more-details");
-  var progressBar = document.querySelector(".progress-bar");
-  var progressContainer = document.querySelector(".progress-container");
+    document.getElementById("showmorebtn").addEventListener("click", function () {
+  var additionalProfiles = document.querySelectorAll(".additional-profiles .additional");
 
-  if (detailsDiv.classList.contains("hidden")) {
-    progressContainer.classList.remove("hidden");
-    progressBar.style.width = "100%"; // Start progress bar
-    setTimeout(function() {
-      detailsDiv.classList.remove("hidden");
-      document.getElementById("showmorebtn").textContent = "Show less?";
-      progressBar.style.width = "0%"; // Reset progress bar
-      progressContainer.classList.add("hidden");
-    }, 3000); // 3 seconds for example, change as needed
+  event.preventDefault(); // 기본 동작 중지
+
+  // 추가적인 프로필 카드들 보이기/숨기기
+  additionalProfiles.forEach(function(card) {
+    card.classList.toggle("hidden");
+  });
+
+  // "Who am I?" 버튼 텍스트 변경
+  var showMoreBtn = document.getElementById("showmorebtn");
+  if (showMoreBtn.textContent === "Who am I?") {
+    showMoreBtn.textContent = "▲";
   } else {
-    detailsDiv.classList.add("hidden");
-    document.getElementById("showmorebtn").textContent = "Show more?";
+    showMoreBtn.textContent = "Who am I?";
   }
 });
+
+function toggleSubCard(button) {
+        var card = button.parentElement;
+        var subCard = card.querySelector('.sub-card');
+        subCard.classList.toggle('hidden');
+    }
   </script>
 </body>
 </html>
