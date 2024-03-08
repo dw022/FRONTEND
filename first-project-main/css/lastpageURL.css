@@ -64,7 +64,7 @@ i.fa-magnifying-glass {
 .search-container {
 position: relative;
 width: 500px;
-margin: 20px 60px;
+margin: 20px auto;
 }
 
 .search-input {
@@ -155,7 +155,7 @@ z-index:1;
      grid-template-columns: repeat(3, 1fr); /* 3개의 열을 만듭니다. */
      gap: 10px; /* 이미지 사이의 간격 설정 */
      margin-top: 2rem;
-     padding-bottom:7rem;
+     padding-bottom:9rem;
      align-items: center;
 }
 
@@ -167,7 +167,6 @@ z-index:1;
     justify-content: center; /* 추가: 수평 중앙 정렬 */
     align-items: center; /* 추가: 수직 중앙 정렬 */
     flex-direction: column;
-    
 }
 
 .grid-item img {
@@ -221,73 +220,6 @@ z-index:1;
     color:rgb(63, 63, 63);
     text-shadow: 0 0 .1em, 0 0 .3em;
 }
-
-.neonlogo {
-    animation: neonlogo 1s ease infinite;
-    -moz-animation: neonlogo 1s ease infinite;
-    -webkit-animation: neonlogo 1s ease infinite;
-  }
-
-.neonlogo-olive {
-    /* display: table-cell; */
-    text-align: center;
-    vertical-align: middle;
-    font-family: neonlogo;
-    color: #2ba752;
-    font-size: 3rem;
-    line-height: 3vw;
-    text-shadow: 0 0 3vw #207447;
-    animation: neonlogo-olive 2s linear infinite;
-    -moz-animation: neonlogo-olive 2s linear infinite;
-    -webkit-animation: neonlogo-olive 2s linear infinite;
-    -o-animation: neonlogo-olive 2s linear infinite;
-    margin-top: -4px; /*로고를 위로 20px 이동*/
-}
-
-.neonlogo-young {
-    /* display: table-cell; */
-    text-align: center;
-    vertical-align: middle;
-    font-family: neonlogo;
-    color: #2c49a9;
-    font-size: 3rem;
-    line-height: 4vw;
-    text-shadow: 0 0 3vw #142e84;
-    animation: neonlogo-young 2s linear infinite;
-    -moz-animation: neonlogo-young 2s linear infinite;
-    -webkit-animation: neonlogo-young 2s linear infinite;
-    -o-animation: neonlogo-young 2s linear infinite;
-}
-
-@font-face {
-    font-family: neonlogo;
-    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
-  }
-
-  @keyframes neonlogo-olive {
-    0%,
-    100% {
-      text-shadow: 0 0 1vw #309818, 0 0 3vw #309818, 0 0 10vw #309818, 0 0 10vw #309818, 0 0 .4vw #17aa1e, .5vw .5vw .1vw #229213;
-      color: #6cfe28;
-    }
-    50% {
-      text-shadow: 0 0 .5vw #25ff5c, 0 0 1.5vw #25ff5c, 0 0 5vw #25ff5c, 0 0 5vw #25ff5c, 0 0 .2vw #25ff5c, .5vw .5vw .1vw #0e400a;
-      color: #148070;
-    }
-  }
-
-  
-  @keyframes neonlogo-young {
-    0%,
-    100% {
-      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-      color: #28D7FE;
-    }
-    50% {
-      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-      color: #146C80;
-    }
-  }
 
 footer {
     text-align: center;

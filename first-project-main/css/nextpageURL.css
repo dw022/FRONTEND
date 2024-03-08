@@ -1,3 +1,20 @@
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+
+@font-face {
+  font-family: moon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/moon.ttf);
+}
+
+@font-face {
+  font-family: clipneon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/clip.ttf);
+}
+
+@font-face {
+  font-family: lasenter;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/lasenter.ttf);
+}
+
 .header {
     width:100%;
     height:20rem;
@@ -154,7 +171,8 @@ z-index:1;
      display: grid;
      grid-template-columns: repeat(3, 1fr); /* 3개의 열을 만듭니다. */
      gap: 10px; /* 이미지 사이의 간격 설정 */
-     margin-top: 10rem;
+     margin-top: 2rem;
+     padding-bottom:9rem;
      align-items: center;
 }
 
@@ -215,6 +233,40 @@ z-index:1;
     background-color: #00300e;
 }
 
+.price {
+    color:rgb(63, 63, 63);
+    text-shadow: 0 0 .1em, 0 0 .3em;
+}
+
+.neon {
+    font-family: moon;
+    animation: neon 1s 0s ease infinite;
+    -moz-animation: neon 1s 0s ease infinite;
+    /* Firefox */
+    -webkit-animation: neon 1s 0s ease infinite;
+    /* Safari and Chrome */
+    -o-animation: neon 1s 0s ease infinite;
+    /* Opera */
+  }
+
+  @keyframes neon {
+    0%,
+    100% {
+    text-shadow: 
+    -.1vw 0vw .1vw #FED128, -.15vw 0vw .2vw #FED128, -.2vw 0vw .2vw #FED128, 
+    -.1vw 0vw 3vw #F0130B, -.2vw 0vw 3vw #F0130B, -.4vw 0vw 3vw #F0130B,
+    -.1vw 0vw 5vw #F0130B, -.2vw 0vw 5vw #F0130B, -.4vw 0vw .8vw #F0130B, .2vw 0vw 10vw #F0130B;
+      color: #FED128;
+    }
+    50% {
+    text-shadow: 
+    -.1vw 0vw .1vw #705C12, -.15vw 0vw .2vw #705C12, -.2vw 0vw .2vw #705C12, 
+    -.1vw 0vw .1vw #5C0704, -.2vw 0vw .1vw #5C0704, -.4vw 0vw .1vw #5C0704,
+    -.1vw 0vw .2vw #5C0704, -.2vw 0vw .2vw #5C0704, -.4vw 0vw .2vw #5C0704, .2vw 0vw .5vw #5C0704;
+      color: #705C12;
+    }
+  }
+
 footer {
     text-align: center;
     width: 100%;
@@ -222,4 +274,5 @@ footer {
     bottom: 0;
     background-color: #80808060; /* 원하는 배경색 */
     padding: 20px 0; /* 원하는 패딩값 */
+    z-index: 2;
 }
