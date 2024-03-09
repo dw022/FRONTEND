@@ -1,14 +1,10 @@
 .header {
+    position: relative;
     width:100%;
     height:20rem;
     margin-top:20px;
     position: relative;
     border:3px solid rgba(94, 138, 86, 0.363);
-}
-
-.headcontainer {
-    display: flex;
-    margin:auto;
 }
 
 /* 메뉴바 */
@@ -35,25 +31,11 @@
     color: black; /* 링크 색상 지정 */
 }
 
-/* 로고 */
-.logo {
-    margin-left:12rem;
-}
-
-.logo img {
-    width: 20rem; /* 원하는 너비로 조절 */
-    height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
-    margin-top:0.8rem;
-}
-
 .nexttosearch {
-    display: flex;
-    margin-right:15rem;
-    margin-top:1.5rem;
-    font-size:25px;
-}
-.nexttosearch a {
-    margin-right: 10px;
+    position: absolute;
+    top: 10rem; /* 검색 상자 위에서부터의 거리 조절 */
+    right: 10rem; /* 검색 상자에서 오른쪽으로의 거리 조절 */
+    font-size: 25px;
 }
 
 i.fa-magnifying-glass {
@@ -62,9 +44,10 @@ i.fa-magnifying-glass {
 
 /* 검색창 */
 .search-container {
-position: relative;
-width: 500px;
-margin: 20px 60px;
+    position: relative; /* 검색 상자를 relative로 설정하여 아이콘이 이 상자 내에 포함될 수 있도록 합니다. */
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 4rem;
 }
 
 .search-input {
@@ -80,13 +63,24 @@ border-color: #048a0465;
 }
 
 .search-icon {
-position: absolute;
-top: 50%;
-right: 10px;
-transform: translateY(-50%);
-width: 20px;
-height: 20px;
-fill: #888;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: #888;
+}
+
+/* 오토앨범 */
+.autoalbum {
+    position: relative;
+    margin-top: 7rem;
+    width: 800px;
+    height: 500px;
+    border: 2px solid gray;
+    border-radius: 30px;
+    overflow:hidden;
 }
 
 .autoalbum-container {
@@ -94,23 +88,12 @@ fill: #888;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top:10rem;
 }
 
 #como {
     position: absolute;
     margin-top: 40rem;
     left:40rem;
-}
-
-/* 오토앨범 */
-.autoalbum {
-    position: relative;
-    width: 800px;
-    height: 500px;
-    border: 2px solid gray;
-    border-radius: 30px;
-    overflow:hidden;
 }
 
 #WELCOMETEXT {
@@ -150,11 +133,11 @@ z-index:1;
 }
 
 .grid-container {
-     position: absolute;
+     position: relative;
      display: grid;
      grid-template-columns: repeat(3, 1fr); /* 3개의 열을 만듭니다. */
      gap: 10px; /* 이미지 사이의 간격 설정 */
-     margin-top: 2rem;
+     padding-top: 5rem;
      padding-bottom:7rem;
      align-items: center;
 }
@@ -207,19 +190,26 @@ z-index:1;
     padding: 10px 20px;
     margin: 0 10px;
     border: 3px solid grey;
-    background-color: #00681f;
+    background-color: #00912b;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .pagination-button:hover {
-    background-color: #00300e;
+    background-color: #005c1c;
 }
 
 .price {
     color:rgb(63, 63, 63);
     text-shadow: 0 0 .1em, 0 0 .3em;
+}
+
+/* 로고 */
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-top:6rem;
 }
 
 .neonlogo {
@@ -229,28 +219,28 @@ z-index:1;
   }
 
 .neonlogo-olive {
-    /* display: table-cell; */
+    display: table-cell;
     text-align: center;
     vertical-align: middle;
     font-family: neonlogo;
     color: #2ba752;
-    font-size: 3rem;
+    font-size: 5rem;
     line-height: 3vw;
     text-shadow: 0 0 3vw #207447;
     animation: neonlogo-olive 2s linear infinite;
     -moz-animation: neonlogo-olive 2s linear infinite;
     -webkit-animation: neonlogo-olive 2s linear infinite;
     -o-animation: neonlogo-olive 2s linear infinite;
-    margin-top: -4px; /*로고를 위로 20px 이동*/
 }
 
 .neonlogo-young {
-    /* display: table-cell; */
+    display: table-cell;
     text-align: center;
     vertical-align: middle;
+    margin-left:10rem;
     font-family: neonlogo;
     color: #2c49a9;
-    font-size: 3rem;
+    font-size: 5rem;
     line-height: 4vw;
     text-shadow: 0 0 3vw #142e84;
     animation: neonlogo-young 2s linear infinite;
@@ -295,6 +285,6 @@ footer {
     position: fixed;
     bottom: 0;
     background-color: #80808060; /* 원하는 배경색 */
-    padding: 20px 0; /* 원하는 패딩값 */
+    padding: 33px 0; /* 원하는 패딩값 */
     z-index: 2;
 }
